@@ -28,7 +28,7 @@
     align-items: center;
     padding: 1.4rem 0;
     border-radius: 100rem;
-    animation: drop-available 700ms ease-in-out 4600ms backwards;
+    animation: drop-available 700ms ease-in-out 4000ms backwards;
 }
 
 @keyframes drop-available {
@@ -91,19 +91,19 @@
 }
 
 .nav-link:nth-child(5) {
-    animation: reveal-nav-links 500ms linear 2900ms backwards;
+    animation: reveal-nav-links 500ms linear 1900ms backwards;
 }
 .nav-link:nth-child(4) {
-    animation: reveal-nav-links 500ms linear 3200ms backwards;
+    animation: reveal-nav-links 500ms linear 2200ms backwards;
 }
 .nav-link:nth-child(3) {
-    animation: reveal-nav-links 500ms linear 3500ms backwards;
+    animation: reveal-nav-links 500ms linear 2500ms backwards;
 }
 .nav-link:nth-child(2) {
-    animation: reveal-nav-links 500ms linear 3800ms backwards;
+    animation: reveal-nav-links 500ms linear 2800ms backwards;
 }
 .nav-link:nth-child(1) {
-    animation: reveal-nav-links 500ms linear 4100ms backwards;
+    animation: reveal-nav-links 500ms linear 3100ms backwards;
 }
 
 @keyframes reveal-nav-links {
@@ -156,7 +156,7 @@
 .fixed-icons {
     position: fixed;
     bottom: 0;
-    right: 5%;
+    right: 8%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -170,7 +170,7 @@
     font-size: 2.4rem;
     color: #aaa;
     transition: all 300ms;
-    animation: fadein 500ms linear 3600ms backwards;
+    animation: fadein 500ms linear 2600ms backwards;
 }
 
 @keyframes fadein {
@@ -211,7 +211,7 @@
     height: 16rem;
     background-color: #ccc;
     animation: expand-vertical-line 700ms cubic-bezier(0.13, 0.58, 0.75, 0.95)
-        2900ms backwards;
+        1900ms backwards;
 }
 
 @keyframes expand-vertical-line {
@@ -369,7 +369,7 @@
     text-transform: uppercase;
     letter-spacing: 0.75px;
     transform: all 300ms;
-    animation: fadein 1000ms ease-in 5500ms backwards;
+    animation: fadein 1000ms ease-in 4000ms backwards;
 }
 
 .continue--text:hover {
@@ -380,8 +380,8 @@
     font-size: 2.2rem;
     color: #4361ee;
     transition: all 300ms;
-    animation: fadein 1000ms ease-in 5500ms backwards,
-        drop-continue-icon 500ms ease-out 6500ms backwards;
+    animation: fadein 1000ms ease-in 4000ms backwards,
+        drop-continue-icon 500ms ease-out 5000ms backwards;
 }
 
 @keyframes drop-continue-icon {
