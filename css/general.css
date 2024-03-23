@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.4rem;
+} */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 10rem 9.6rem;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4361ee;
+}
