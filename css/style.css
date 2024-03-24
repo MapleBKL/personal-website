@@ -752,3 +752,114 @@
 }
 
 /* ---------- Section CTA ---------- */
+.header--cta {
+    margin-bottom: 6.4rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 7.2rem;
+}
+
+.linkedin--cta::after {
+    content: "Contact me on LinkedIn";
+    position: absolute;
+    font-size: 1.2rem;
+    bottom: 100%;
+    left: 0;
+    transform: translateX(-10%);
+    padding: 0.4rem 0.8rem;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 4px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 300ms;
+}
+
+.linkedin--cta:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    align-items: center;
+}
+
+.cta-form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    column-gap: 3.2rem;
+    row-gap: 2rem;
+}
+
+.cta-form label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form textarea {
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 9px;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.08);
+}
+
+.cta-form div:last-child {
+    grid-column: 1 / -1;
+}
+
+.send-message {
+    width: 16rem;
+    color: #f7f7f7;
+    background-color: #4361ee;
+    border: none;
+    font-size: 1.6rem;
+    padding: 1.2rem 2.4rem;
+    border-radius: 9px;
+    transition: all 300ms;
+}
+
+.send-message:hover {
+    cursor: pointer;
+    background-color: #2f44a7;
+}
+
+.contact-alt {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.contact-text-head {
+    font-size: 3.6rem;
+    font-weight: 600;
+    letter-spacing: -0.8px;
+}
+
+.contact-text-body {
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+/* ---------- FOOTER ---------- */
+.copyright {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #777;
+}

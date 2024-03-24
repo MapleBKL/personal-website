@@ -6,6 +6,16 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
    ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝ \nHey there! Thank you for checking out my website!`);
 
 const sectionAbout = document.querySelector(".section_about");
+const sectionExperience = document.querySelector(".section_experience");
+const sectionSkills = document.querySelector(".section_skills");
+const sectionProjects = document.querySelector(".section_projects");
+const sectionCta = document.querySelector(".section_cta");
+
+const btnAbout = document.querySelector(".main_nav-link--about");
+const btnExperience = document.querySelector(".main_nav-link--experience");
+const btnSkills = document.querySelector(".main_nav-link--skills");
+const btnProjects = document.querySelector(".main_nav-link--projects");
+const btnCta = document.querySelector(".main_nav--cta");
 
 const continueText = document.querySelector(".continue--text");
 const continueIcon = document.querySelector(".continue--icon");
@@ -20,6 +30,28 @@ const projectsFeatured = document.querySelectorAll(".project-item");
 const projectsOther = document.querySelectorAll(".project--other-item");
 
 // Animation
+// main nav links smooth scroll
+btnAbout.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionAbout.scrollIntoView({ behavior: "smooth" });
+});
+btnExperience.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionExperience.scrollIntoView({ behavior: "smooth" });
+});
+btnSkills.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionSkills.scrollIntoView({ behavior: "smooth" });
+});
+btnProjects.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionProjects.scrollIntoView({ behavior: "smooth" });
+});
+btnCta.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionCta.scrollIntoView({ behavior: "smooth" });
+});
+
 // In the hero section, when hovering cursor over the CONTINUE text, the icon
 // below it should move down
 continueText.addEventListener("mouseenter", function () {
