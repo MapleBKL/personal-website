@@ -72,23 +72,92 @@ btnBackToTop.addEventListener("click", function (e) {
 // main nav links smooth scroll
 btnAbout.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionAbout.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionAbout.getBoundingClientRect();
+    if (sectionAbout.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
+
 btnExperience.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionExperience.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionExperience.getBoundingClientRect();
+    if (sectionExperience.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
+
 btnSkills.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionSkills.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionSkills.getBoundingClientRect();
+    if (sectionSkills.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
+
 btnProjects.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionProjects.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionProjects.getBoundingClientRect();
+    if (sectionProjects.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
+
 btnCta.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionCta.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionCta.getBoundingClientRect();
+    if (sectionCta.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
 
 // In the hero section, when hovering cursor over the CONTINUE text, the icon

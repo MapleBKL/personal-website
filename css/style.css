@@ -16,14 +16,9 @@
 .sticky-nav {
     position: fixed;
     z-index: 1;
-    /* top: 0; */
     background-color: rgba(247, 247, 247, 0.8);
     backdrop-filter: blur(1.6rem);
 }
-
-/* .header:not(.sticky-nav) {
-    top: -8rem;
-} */
 
 .available {
     justify-self: center;
