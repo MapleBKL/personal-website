@@ -115,6 +115,17 @@ const revealSection = function (entries, observer) {
     const [entry] = entries;
     if (entry.isIntersecting) {
         entry.target.classList.remove("section--hidden");
+        if (entry.target.classList.contains("section_about")) {
+            setTimeout(
+                () =>
+                    entry.target
+                        .querySelectorAll(".about--text-highlight")
+                        .forEach((hl) =>
+                            hl.classList.add("about--text-highlighted")
+                        ),
+                1000
+            );
+        }
         observer.unobserve(entry.target);
     }
 };

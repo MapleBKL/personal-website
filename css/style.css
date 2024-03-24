@@ -91,19 +91,19 @@
 }
 
 .nav-link:nth-child(5) {
-    animation: reveal-nav-links 500ms linear 1900ms backwards;
+    animation: reveal-nav-links 500ms linear 2350ms backwards;
 }
 .nav-link:nth-child(4) {
-    animation: reveal-nav-links 500ms linear 2200ms backwards;
+    animation: reveal-nav-links 500ms linear 2600ms backwards;
 }
 .nav-link:nth-child(3) {
-    animation: reveal-nav-links 500ms linear 2500ms backwards;
+    animation: reveal-nav-links 500ms linear 2850ms backwards;
 }
 .nav-link:nth-child(2) {
-    animation: reveal-nav-links 500ms linear 2800ms backwards;
+    animation: reveal-nav-links 500ms linear 3100ms backwards;
 }
 .nav-link:nth-child(1) {
-    animation: reveal-nav-links 500ms linear 3100ms backwards;
+    animation: reveal-nav-links 500ms linear 3350ms backwards;
 }
 
 @keyframes reveal-nav-links {
@@ -170,7 +170,7 @@
     font-size: 2.4rem;
     color: #aaa;
     transition: all 300ms;
-    animation: fadein 500ms linear 2600ms backwards;
+    animation: fadein 500ms linear 3050ms backwards;
 }
 
 @keyframes fadein {
@@ -211,7 +211,7 @@
     height: 16rem;
     background-color: #ccc;
     animation: expand-vertical-line 700ms cubic-bezier(0.13, 0.58, 0.75, 0.95)
-        1900ms backwards;
+        2350ms backwards;
 }
 
 @keyframes expand-vertical-line {
@@ -250,7 +250,7 @@
     text-align: left;
     margin-bottom: 1.2rem;
     letter-spacing: -0.75px;
-    animation: reveal-name 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 1000ms
+    animation: reveal-name 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 400ms
         backwards;
 }
 
@@ -259,7 +259,7 @@
     font-weight: 600;
     text-align: left;
     margin-bottom: 1rem;
-    animation: reveal-name 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 1000ms
+    animation: reveal-name 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 400ms
         backwards;
 }
 
@@ -277,8 +277,8 @@
     height: 0.18rem;
     background-color: #333;
     width: 100%;
-    animation: expand-line 1000ms cubic-bezier(0.44, 0.1, 0.44, 0.9),
-        shrink-line 1000ms cubic-bezier(0.44, 0.1, 0.44, 0.9) 1900ms forwards;
+    animation: expand-line 400ms cubic-bezier(0.44, 0.1, 0.44, 0.9),
+        shrink-line 1750ms cubic-bezier(0.44, 0.1, 0.44, 0.9) 2350ms forwards;
 }
 
 @keyframes expand-line {
@@ -312,7 +312,7 @@
     margin-bottom: 1rem;
     color: #d9dffc;
     letter-spacing: -0.7px;
-    animation: reveal-time 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 1000ms
+    animation: reveal-time 350ms cubic-bezier(0.27, 0.97, 0.6, 1) 1300ms
         backwards;
 }
 
@@ -322,7 +322,7 @@
     margin-bottom: 1rem;
     color: #8ea0f5;
     letter-spacing: -0.7px;
-    animation: reveal-time 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 1000ms
+    animation: reveal-time 350ms cubic-bezier(0.27, 0.97, 0.6, 1) 1650ms
         backwards;
 }
 
@@ -331,7 +331,7 @@
     font-size: 2.8rem;
     color: #4361ee;
     letter-spacing: -0.7px;
-    animation: reveal-time 900ms cubic-bezier(0.27, 0.97, 0.6, 1) 1000ms
+    animation: reveal-time 350ms cubic-bezier(0.27, 0.97, 0.6, 1) 2000ms
         backwards;
 }
 
@@ -423,18 +423,23 @@
     line-height: 1.8;
 }
 
-.about--text span {
+.about--text-highlight {
     position: relative;
 }
 
-.about--text span::after {
+.about--text-highlight::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -0.3rem;
     height: 0.2rem;
-    width: 100%;
+    width: 0%;
     background-color: #4361ee;
+    transition: all 500ms;
+}
+
+.about--text-highlighted::after {
+    width: 100%;
 }
 
 .about--img {
