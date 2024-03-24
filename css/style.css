@@ -10,19 +10,24 @@
     grid-template-columns: repeat(3, 1fr);
     height: 8rem;
     align-items: center;
+    transition: top 300ms ease;
 }
 
 .sticky-nav {
     position: fixed;
     z-index: 1;
+    /* top: 0; */
     background-color: rgba(247, 247, 247, 0.8);
     backdrop-filter: blur(1.6rem);
 }
 
+/* .header:not(.sticky-nav) {
+    top: -8rem;
+} */
+
 .available {
     justify-self: center;
     width: 24rem;
-    /* background-color: #cdfae0; */
     background-color: #e6f9e3;
     display: flex;
     gap: 1rem;
@@ -197,10 +202,6 @@
 .link-icon--linkedin:hover,
 .link-icon--linkedin:active {
     color: #0072b1;
-}
-
-.link-icon--top:link {
-    display: none;
 }
 
 .link-icon--top:hover,

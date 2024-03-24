@@ -6,6 +6,7 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
    ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝ \nHey there! Thank you for checking out my website!`);
 
 const header = document.querySelector(".header");
+const headerPlaceholder = document.querySelector(".header-placeholder");
 
 const sections = document.querySelectorAll(".section");
 const sectionAbout = document.querySelector(".section_about");
@@ -19,6 +20,7 @@ const btnExperience = document.querySelector(".main_nav-link--experience");
 const btnSkills = document.querySelector(".main_nav-link--skills");
 const btnProjects = document.querySelector(".main_nav-link--projects");
 const btnCta = document.querySelector(".main_nav--cta");
+const btnBackToTop = document.querySelector(".link-icon--top");
 
 const continueText = document.querySelector(".continue--text");
 const continueIcon = document.querySelector(".continue--icon");
@@ -34,24 +36,38 @@ const projectsFeatured = document.querySelectorAll(".project-item");
 const projectsOther = document.querySelectorAll(".project--other-item");
 
 // Animation
-// sticky nav bar
+// sticky nav bar + back-to-top button
 const navHeight = header.getBoundingClientRect().height;
 
-const stickyNav = function (entries) {
+const showNav = function (entries) {
     const [entry] = entries;
     if (entry.isIntersecting) {
-        header.classList.remove("sticky-nav");
+        header.style.top = `-${navHeight}px`;
+        setTimeout(() => {
+            header.classList.remove("sticky-nav");
+            headerPlaceholder.style.height = "0";
+        }, 300);
+        btnBackToTop.classList.add("element--hidden");
     } else {
+        header.style.top = "0";
         header.classList.add("sticky-nav");
+        headerPlaceholder.style.height = `${navHeight}px`;
+        btnBackToTop.classList.remove("element--hidden");
     }
 };
 
-const headerObserver = new IntersectionObserver(stickyNav, {
+const headerObserver = new IntersectionObserver(showNav, {
     root: null,
     threshold: 0,
     rootMargin: `-${navHeight}px`,
 });
 headerObserver.observe(headerContainer);
+
+// back to top button implementation
+btnBackToTop.addEventListener("click", function (e) {
+    e.preventDefault();
+    headerContainer.scrollIntoView({ behavior: "smooth" });
+});
 
 // main nav links smooth scroll
 btnAbout.addEventListener("click", function (e) {
