@@ -5,6 +5,7 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
    ██║   ██║██║ ╚████║██║     ███████╗██║ ╚████║╚██████╔╝    ███████╗╚██████╔╝
    ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝ \nHey there! Thank you for checking out my website!`);
 
+const sections = document.querySelectorAll(".section");
 const sectionAbout = document.querySelector(".section_about");
 const sectionExperience = document.querySelector(".section_experience");
 const sectionSkills = document.querySelector(".section_skills");
@@ -108,3 +109,19 @@ projectsOther.forEach((p) =>
             "scale(1)";
     })
 );
+
+// reveal sections
+const revealSection = function (entries, observer) {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+        entry.target.classList.remove("section--hidden");
+        observer.unobserve(entry.target);
+    }
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.18,
+});
+
+sections.forEach((s) => sectionObserver.observe(s));

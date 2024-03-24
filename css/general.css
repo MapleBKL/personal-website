@@ -44,3 +44,14 @@ h3 {
 aside {
     margin-bottom: 3.6rem;
 }
+
+/* hide a section initially, reveal when visitor scrolls there */
+.section {
+    margin-top: 4rem;
+    transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+    opacity: 0;
+    transform: translateY(4rem);
+}
