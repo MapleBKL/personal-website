@@ -5,6 +5,8 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
    ██║   ██║██║ ╚████║██║     ███████╗██║ ╚████║╚██████╔╝    ███████╗╚██████╔╝
    ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝ \nHey there! Thank you for checking out my website!`);
 
+const header = document.querySelector(".header");
+
 const sections = document.querySelectorAll(".section");
 const sectionAbout = document.querySelector(".section_about");
 const sectionExperience = document.querySelector(".section_experience");
@@ -23,6 +25,7 @@ const continueIcon = document.querySelector(".continue--icon");
 const externalText = document.querySelector(".external");
 const externalIcon = document.querySelector(".external-icon");
 
+const headerContainer = document.querySelector(".header_container");
 const projectContainer = document.querySelector(".project-container");
 const projectOtherContainer = document.querySelector(
     ".projects--other-container"
@@ -31,6 +34,25 @@ const projectsFeatured = document.querySelectorAll(".project-item");
 const projectsOther = document.querySelectorAll(".project--other-item");
 
 // Animation
+// sticky nav bar
+const navHeight = header.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+        header.classList.remove("sticky-nav");
+    } else {
+        header.classList.add("sticky-nav");
+    }
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(headerContainer);
+
 // main nav links smooth scroll
 btnAbout.addEventListener("click", function (e) {
     e.preventDefault();
@@ -123,7 +145,7 @@ const revealSection = function (entries, observer) {
                         .forEach((hl) =>
                             hl.classList.add("about--text-highlighted")
                         ),
-                1000
+                1200
             );
         }
         observer.unobserve(entry.target);
