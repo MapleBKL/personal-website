@@ -7,6 +7,7 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
 
 const header = document.querySelector(".header");
 const headerPlaceholder = document.querySelector(".header-placeholder");
+const availableTag = document.querySelector(".available");
 
 const sections = document.querySelectorAll(".section");
 const sectionAbout = document.querySelector(".section_about");
@@ -46,7 +47,7 @@ const showNav = function (entries) {
         setTimeout(() => {
             header.classList.remove("sticky-nav");
             headerPlaceholder.style.height = "0";
-        }, 300);
+        }, 150);
         btnBackToTop.classList.add("element--hidden");
     } else {
         header.style.top = "0";
@@ -172,7 +173,20 @@ continueText.addEventListener("mouseleave", function () {
 // click CONTINUE -> go to the ABOUT section
 continueText.addEventListener("click", function (e) {
     e.preventDefault();
-    sectionAbout.scrollIntoView({ behavior: "smooth" });
+    const coords = sectionAbout.getBoundingClientRect();
+    if (sectionAbout.classList.contains("section--hidden")) {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset - 40,
+            behavior: "smooth",
+        });
+    } else {
+        window.scrollTo({
+            left: coords.left + window.pageXOffset,
+            top: coords.top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    }
 });
 
 // In the EXPERIENCE section, when hovering cursor over the View My Thesis text,
@@ -222,7 +236,10 @@ const revealSection = function (entries, observer) {
     const [entry] = entries;
     if (entry.isIntersecting) {
         entry.target.classList.remove("section--hidden");
-        if (entry.target.classList.contains("section_about")) {
+        if (
+            entry.target.classList.contains("section_about") ||
+            entry.target.classList.contains("section_cta")
+        ) {
             setTimeout(
                 () =>
                     entry.target
@@ -243,3 +260,19 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 
 sections.forEach((s) => sectionObserver.observe(s));
+
+// when visitor reaches the CTA section, shake the available notification (only once)
+const shakeAvailable = function (entries, observer) {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+        availableTag.style.animation = "shake 230ms ease-in-out 1500ms";
+        observer.unobserve(entry.target);
+    }
+};
+
+const availableObserver = new IntersectionObserver(shakeAvailable, {
+    root: null,
+    threshold: 0.95,
+});
+
+availableObserver.observe(sectionCta);

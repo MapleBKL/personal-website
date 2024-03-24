@@ -10,7 +10,7 @@
     grid-template-columns: repeat(3, 1fr);
     height: 8rem;
     align-items: center;
-    transition: top 300ms ease;
+    transition: top 150ms ease;
 }
 
 .sticky-nav {
@@ -33,6 +33,24 @@
     animation: drop-available 700ms ease-in-out 4000ms backwards;
 }
 
+@keyframes shake {
+    0% {
+        transform: translateX(-0.2rem);
+    }
+    25% {
+        transform: translateX(0.4rem);
+    }
+    50% {
+        transform: translateX(-0.4rem);
+    }
+    75% {
+        transform: translateX(0.4rem);
+    }
+    100% {
+        transform: translateX(-0.2rem);
+    }
+}
+
 @keyframes drop-available {
     0% {
         opacity: 0;
@@ -42,21 +60,20 @@
         opacity: 1;
         transform: translateY(0);
     }
-    70% {
-        opacity: 1;
-        transform: translateY(0) translateX(-0.5rem);
+    68% {
+        transform: translateX(-0.2rem);
     }
-    80% {
-        opacity: 1;
-        transform: translateY(0) translateX(0.5rem);
+    76% {
+        transform: translateX(0.4rem);
     }
-    90% {
-        opacity: 1;
-        transform: translateY(0) translateX(-0.5rem);
+    84% {
+        transform: translateX(-0.4rem);
+    }
+    92% {
+        transform: translateX(0.4rem);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translateX(-0.2rem);
     }
 }
 
