@@ -87,7 +87,10 @@
                         ><ion-icon name="logo-github"></ion-icon
                     ></a>
                     <a href="#" class="link-icon link-icon--linkedin"
-                        ><ion-icon name="logo-linkedin"></ion-icon
+                        ><ion-icon
+                            name="logo-linkedin"
+                            class="logo-linkedin"
+                        ></ion-icon
                     ></a>
                     <div class="vertical-line"></div>
                 </div>
@@ -164,8 +167,8 @@
                             >.
                         </p>
                         <p>
-                            In my spare time, I enjoy reading novels and
-                            learning foreign languages!
+                            In my spare time, I enjoy reading novels,
+                            travelling, and learning foreign languages!
                         </p>
                     </div>
                     <div class="about--img">
@@ -327,134 +330,300 @@
                 <div class="projects--featured">
                     <h3 class="subheader--projects">Featured Projects</h3>
                     <div class="project-container">
-                        <div class="project-item">
-                            <img
-                                class="project-img"
-                                src="img/projects/UChicago_Dusk.jpg"
-                                alt="abc"
-                            />
-                            <div class="project-text">
-                                <h4 class="project-name">
-                                    Genomics Annotation Service
-                                </h4>
-                                <p class="project-content">
-                                    Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Dignissimos voluptas ad
-                                    tempore. Consequatur sunt eius magni
-                                    quisquam, at rerum accusamus exercitationem
-                                    voluptatem sint officia dolores distinctio
-                                    explicabo atque, totam soluta. Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit.
-                                    Molestiae, dolores eius. Mollitia magni
-                                    maiores eaque aliquam ducimus aliquid,
-                                    eveniet laudantium aut.
-                                </p>
+                        <a href="#" class="project-link"
+                            ><div class="project-item">
+                                <img
+                                    class="project-img"
+                                    src="img/projects/UChicago_Dusk.jpg"
+                                    alt="abc"
+                                />
+                                <div class="project-text">
+                                    <div class="project-header">
+                                        <h4 class="project-name">
+                                            Genomics Annotation Service
+                                        </h4>
+                                        <i
+                                            class="bx bx-link-external element--hidden"
+                                        ></i>
+                                    </div>
+                                    <p class="project-content">
+                                        Genomics Annotation Service (GAS) is a
+                                        distributed SaaS application deployed on
+                                        Amazon Web Services (AWS), featuring a
+                                        frontend server, a backend server, and a
+                                        utility server. It facilitates file
+                                        submission, file annotation, job
+                                        tracking, and result file retrieval. GAS
+                                        offers tiered user access (free &amp;
+                                        premium), with corresponding service
+                                        distinctions. Free users have the option
+                                        to upgrade to premium (via the Stripe
+                                        test API). Inter-server communication
+                                        adheres to the observer design pattern.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang">Python</span
+                                        ><span class="tag tag--lang">HTML</span
+                                        ><span class="tag tag--lang">CSS</span
+                                        ><span class="tag tag--lang"
+                                            >JavaScript</span
+                                        ><span class="tag tag--framework"
+                                            >Flask</span
+                                        ><span class="tag tag--framework"
+                                            >Boto3</span
+                                        ><span class="tag tag--framework"
+                                            >Jinja</span
+                                        ><span class="tag tag--general"
+                                            >AWS</span
+                                        ><span class="tag tag--general"
+                                            >Backend</span
+                                        ><span class="tag tag--general"
+                                            >Cloud Computing</span
+                                        ><span class="tag tag--general"
+                                            >Web Development</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-item">
-                            <img
-                                class="project-img"
-                                src="img/projects/UChicago_Dusk.jpg"
-                                alt="abc"
-                            />
-                            <div class="project-text">
-                                <h4 class="project-name">
-                                    Cytometry Autogating Pipeline
-                                </h4>
-                                <p class="project-content">
-                                    Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Dignissimos voluptas ad
-                                    tempore. Consequatur sunt eius magni
-                                    quisquam, at rerum accusamus exercitationem
-                                    voluptatem sint officia dolores distinctio
-                                    explicabo atque, totam soluta. Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit.
-                                    Molestiae, dolores eius. Mollitia magni
-                                    maiores eaque aliquam ducimus aliquid,
-                                    eveniet laudantium aut.
-                                </p>
+                        </a>
+                        <a href="#" class="project-link">
+                            <div class="project-item">
+                                <img
+                                    class="project-img"
+                                    src="img/projects/UChicago_Dusk.jpg"
+                                    alt="abc"
+                                />
+                                <div class="project-text">
+                                    <div class="project-header">
+                                        <h4 class="project-name">
+                                            Cytometry Autogating Pipeline
+                                        </h4>
+                                        <i
+                                            class="bx bx-link-external element--hidden"
+                                        ></i>
+                                    </div>
+                                    <p class="project-content">
+                                        While working at Shen Lab (Perelman
+                                        School of Medicine, UPenn), I
+                                        contributed to the development of a
+                                        Cytometry Autogating Pipeline &mdash; an
+                                        automated mass-cytometry data
+                                        preprocessing solution. Utilizing a
+                                        U-net-based neural network, we trained
+                                        the system to filter out erroneous data
+                                        stemming from defective equipment during
+                                        data collection. This fully automated
+                                        pipeline significantly reduces
+                                        processing time compared to manual
+                                        plotting and gating method. Users simply
+                                        input the raw CSV file, and the pipeline
+                                        generates a gated CSV file along with a
+                                        complrehensive plot report.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang"
+                                            >Python</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >PyTorch</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Numpy</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Pandas</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Matplotlib</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Research</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Machine Learning</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-item">
-                            <img
-                                class="project-img"
-                                src="img/projects/UChicago_Dusk.jpg"
-                                alt="abc"
-                            />
-                            <div class="project-text">
-                                <h4 class="project-name">
-                                    My Personal Website
-                                </h4>
-                                <p class="project-content">
-                                    Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Dignissimos voluptas ad
-                                    tempore. Consequatur sunt eius magni
-                                    quisquam, at rerum accusamus exercitationem
-                                    voluptatem sint officia dolores distinctio
-                                    explicabo atque, totam soluta. Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit.
-                                    Molestiae, dolores eius. Mollitia magni
-                                    maiores eaque aliquam ducimus aliquid,
-                                    eveniet laudantium aut.
-                                </p>
+                        </a>
+                        <a href="#" class="project-link">
+                            <div class="project-item">
+                                <img
+                                    class="project-img"
+                                    src="img/projects/UChicago_Dusk.jpg"
+                                    alt="abc"
+                                />
+                                <div class="project-text">
+                                    <div class="project-header">
+                                        <h4 class="project-name">
+                                            My Responsive Personal Website
+                                        </h4>
+                                        <i
+                                            class="bx bx-link-external element--hidden"
+                                        ></i>
+                                    </div>
+                                    <p class="project-content">
+                                        After learning HTML, CSS, and
+                                        JavaScript, I independently constructed
+                                        my responsive personal website. Each
+                                        component and effect was carefully
+                                        worked out using pure CSS and
+                                        JavaScript, without the assistance of
+                                        any libraries or frameworks. This
+                                        project served as a cornerstone for my
+                                        skills in frontend web development.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang">HTML</span>
+                                        <span class="tag tag--lang">CSS</span>
+                                        <span class="tag tag--lang"
+                                            >JavaScript</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Frontend</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >UI Design</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Git</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="projects--other">
                     <h3 class="subheader--projects">More Projects</h3>
                     <div class="projects--other-container">
-                        <div class="project--other-item">
-                            <div class="project-img--other-container">
-                                <img
-                                    class="project-img--other"
-                                    src="img/projects/UChicago_Dusk.jpg"
-                                    alt="abc"
-                                />
+                        <a href="#" class="project-link--other">
+                            <div class="project--other-item">
+                                <div class="project-img--other-container">
+                                    <img
+                                        class="project-img--other"
+                                        src="img/projects/UChicago_Dusk.jpg"
+                                        alt="abc"
+                                    />
+                                </div>
+                                <div class="project-header">
+                                    <h4 class="project-name--other">
+                                        Berkeley Map
+                                    </h4>
+                                    <i
+                                        class="bx bx-link-external element--hidden"
+                                    ></i>
+                                </div>
+                                <div class="project-other-text">
+                                    <p class="project-content--other">
+                                        I implemented the backend for a map
+                                        application centered around the Berkeley
+                                        (CA) area. It supports raster maps
+                                        rendering, navigation calculating, and
+                                        location searching.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang">Java</span>
+                                        <span class="tag tag--framework"
+                                            >Spark</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Backend</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Algorithms</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Data Structures</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="project-name--other">Berkeley Map</h4>
-                            <p class="project-content--other">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Sunt eaque hic assumenda omnis
-                                fugiat officia ipsa inventore iure in rem! Quasi
-                                eius alias eaque consectetur optio illum saepe
-                                ullam quo?
-                            </p>
-                        </div>
-                        <div class="project--other-item">
-                            <div class="project-img--other-container">
-                                <img
-                                    class="project-img--other"
-                                    src="img/projects/UChicago_Dusk.jpg"
-                                    alt="abc"
-                                />
+                        </a>
+                        <a href="#" class="project-link--other">
+                            <div class="project--other-item">
+                                <div class="project-img--other-container">
+                                    <img
+                                        class="project-img--other"
+                                        src="img/projects/UChicago_Dusk.jpg"
+                                        alt="abc"
+                                    />
+                                </div>
+                                <div class="project-header">
+                                    <h4 class="project-name--other">
+                                        Sticky Notes
+                                    </h4>
+                                    <i
+                                        class="bx bx-link-external element--hidden"
+                                    ></i>
+                                </div>
+                                <div class="project-other-text">
+                                    <p class="project-content--other">
+                                        A simple desktop application that mimics
+                                        the functionalities of the sticky notes
+                                        application on Windows 11. I wrote it
+                                        for my low-spec Linux laptop. It
+                                        features a minimalist and modern UI.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang">C++</span>
+                                        <span class="tag tag--framework"
+                                            >Qt</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >UI Design</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Desktop Application</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="project-name--other">Sticky Notes</h4>
-                            <p class="project-content--other">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Sunt eaque hic assumenda omnis
-                                fugiat officia ipsa inventore iure in rem! Quasi
-                                eius alias eaque consectetur optio illum saepe
-                                ullam quo?
-                            </p>
-                        </div>
-                        <div class="project--other-item">
-                            <div class="project-img--other-container">
-                                <img
-                                    class="project-img--other"
-                                    src="img/projects/UChicago_Dusk.jpg"
-                                    alt="abc"
-                                />
+                        </a>
+                        <a href="#" class="project-link--other">
+                            <div class="project--other-item">
+                                <div class="project-img--other-container">
+                                    <img
+                                        class="project-img--other"
+                                        src="img/projects/UChicago_Dusk.jpg"
+                                        alt="abc"
+                                    />
+                                </div>
+                                <div class="project-header">
+                                    <h4 class="project-name--other">
+                                        LAN Connect
+                                    </h4>
+                                    <i
+                                        class="bx bx-link-external element--hidden"
+                                    ></i>
+                                </div>
+                                <div class="project-other-text">
+                                    <p class="project-content--other">
+                                        A local area network (LAN) communication
+                                        application facilitating private
+                                        messaging and file exchange over a TCP
+                                        connection. It also incorporates modern
+                                        features like typing status and
+                                        availability indicators.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="tag tag--lang">C++</span>
+                                        <span class="tag tag--framework"
+                                            >Qt</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >OO Architecture</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Network Programming</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Desktop Application</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="project-name--other">LAN Connect</h4>
-                            <p class="project-content--other">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Sunt eaque hic assumenda omnis
-                                fugiat officia ipsa inventore iure in rem! Quasi
-                                eius alias eaque consectetur optio illum saepe
-                                ullam quo?
-                            </p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -513,6 +682,10 @@
                     有志者事竟成 &#9679; 志有る者は事竟に成る &#9679; Where
                     there&apos;s a will, there&apos;s a way
                 </p> -->
+                <p class="visa-requirement">
+                    Please note that as an international student, I will require
+                    visa sponsorship (H-1B) to work in the United States.
+                </p>
                 <p class="copyright">
                     &copy; 2024 Yinfeng Lu. All rights reserved.
                 </p>

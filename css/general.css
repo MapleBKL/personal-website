@@ -6,7 +6,9 @@
 
 /* *:focus {
     outline: none;
-    box-shadow: 0 0 0 0.4rem;
+    border-radius: 9px;
+    box-shadow: 0 0 0 0.2rem #4361ee;
+    outline-offset: 0.2rem;
 } */
 
 html {
@@ -31,7 +33,7 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 0.75px;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #4361ee;
 }
 
@@ -42,7 +44,7 @@ h3 {
 }
 
 aside {
-    margin-bottom: 3.6rem;
+    margin-bottom: 5.2rem;
 }
 
 /* hide a section initially, reveal when visitor scrolls there */

@@ -22,6 +22,7 @@ const btnSkills = document.querySelector(".main_nav-link--skills");
 const btnProjects = document.querySelector(".main_nav-link--projects");
 const btnCta = document.querySelector(".main_nav--cta");
 const btnBackToTop = document.querySelector(".link-icon--top");
+const btnLinkedIn = document.querySelector(".logo-linkedin");
 
 const continueText = document.querySelector(".continue--text");
 const continueIcon = document.querySelector(".continue--icon");
@@ -34,7 +35,7 @@ const projectOtherContainer = document.querySelector(
     ".projects--other-container"
 );
 const projectsFeatured = document.querySelectorAll(".project-item");
-const projectsOther = document.querySelectorAll(".project--other-item");
+const projectsOther = document.querySelectorAll(".project-link--other");
 
 // Animation
 // sticky nav bar + back-to-top button
@@ -201,16 +202,23 @@ externalText.addEventListener("mouseleave", function () {
 // In the PROJECTS section, when hovering cursor over a featured project,
 // 1. image enlarges
 // 2. project name turns blue
+// 3. external link icon reveals next to project name
 projectContainer.addEventListener("mouseover", function (e) {
     const target = e.target.closest(".project-item");
     if (!target) return;
     target.querySelector(".project-name").style.color = "#4361ee";
     target.querySelector(".project-img").style.transform = "scale(1.1)";
+    const icon = target.querySelector(".bx");
+    icon.classList.remove("element--hidden");
+    icon.style.color = "#4361ee";
 });
 projectsFeatured.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name").style.color = "#333";
         e.target.querySelector(".project-img").style.transform = "scale(1)";
+        const icon = e.target.querySelector(".bx");
+        icon.classList.add("element--hidden");
+        icon.style.color = "#333";
     })
 );
 
@@ -218,16 +226,22 @@ projectsFeatured.forEach((p) =>
 // 1. image enlarges
 // 2. project name turns blue
 projectOtherContainer.addEventListener("mouseover", function (e) {
-    const target = e.target.closest(".project--other-item");
+    const target = e.target.closest(".project-link--other");
     if (!target) return;
     target.querySelector(".project-name--other").style.color = "#4361ee";
     target.querySelector(".project-img--other").style.transform = "scale(1.15)";
+    const icon = target.querySelector(".bx");
+    icon.classList.remove("element--hidden");
+    icon.style.color = "#4361ee";
 });
 projectsOther.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name--other").style.color = "#333";
         e.target.querySelector(".project-img--other").style.transform =
             "scale(1)";
+        const icon = e.target.querySelector(".bx");
+        icon.classList.add("element--hidden");
+        icon.style.color = "#333";
     })
 );
 
@@ -262,10 +276,12 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 sections.forEach((s) => sectionObserver.observe(s));
 
 // when visitor reaches the CTA section, shake the available notification (only once)
+// added effect: blink the linkedin icon three times
 const shakeAvailable = function (entries, observer) {
     const [entry] = entries;
     if (entry.isIntersecting) {
-        availableTag.style.animation = "shake 230ms ease-in-out 1500ms";
+        availableTag.style.animation = "shake 230ms ease-in-out 4000ms";
+        btnLinkedIn.style.animation = "blink-linkedin 1500ms linear 1800ms";
         observer.unobserve(entry.target);
     }
 };
