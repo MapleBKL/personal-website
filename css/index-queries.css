@@ -24,26 +24,39 @@
 
     /* make images in the about section smaller */
     .img-torus {
-        height: 12rem;
+        height: 14rem;
     }
 
     .img-code {
-        height: 18rem;
+        height: 20rem;
     }
 
     .about--img-torus {
-        left: 20%;
+        left: 25%;
     }
 
     .about--img-code {
-        top: 56%;
-        left: 55%;
+        top: 60%;
+        left: 58%;
     }
 }
 
 /* respond to smaller desktop devices */
-@media (max-width: 85rem) {
+@media (max-width: 85em) {
     .container {
         max-width: 115rem;
+    }
+
+    .projects--featured {
+        flex-direction: column;
+    }
+
+    .projects--other {
+        flex-direction: column;
+        gap: 3.6rem;
+    }
+
+    .project--other-item {
+        width: 30rem;
     }
 }
