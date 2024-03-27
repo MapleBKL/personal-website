@@ -138,6 +138,14 @@
     .fixed-icons {
         right: 4%;
     }
+
+    .contact-container {
+        column-gap: 4.8rem;
+    }
+
+    .project--other-item {
+        width: 28rem;
+    }
 }
 
 @media (max-width: 61em) {
@@ -178,5 +186,57 @@
     .project-link--other {
         display: flex;
         justify-content: center;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .about--img {
+        height: 24rem;
+    }
+
+    .img-torus {
+        height: 12rem;
+    }
+
+    .img-code {
+        height: 16rem;
+    }
+
+    .about--img-torus {
+        left: 40%;
+        top: 40%;
+    }
+
+    .about--img-code {
+        top: 65%;
+        left: 63%;
+    }
+
+    .experience-container-item {
+        grid-template-columns: 25fr 75fr;
+    }
+}
+
+@media (max-width: 57em) {
+    .project-img {
+        width: 52rem;
+    }
+
+    .project--other-item {
+        width: 36rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+        grid-row: 1fr 1fr;
+        column-gap: 2.4rem;
+    }
+
+    .skill-container {
+        display: flex;
     }
 }

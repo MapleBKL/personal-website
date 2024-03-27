@@ -680,6 +680,12 @@
     padding-bottom: 0.8rem;
 }
 
+.skill-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+}
+
 .languages-container,
 .frameworks-container,
 .development-container,
@@ -880,7 +886,7 @@
 .contact-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 7.2rem;
+    column-gap: 7.2rem;
 }
 
 .linkedin--cta::after {
