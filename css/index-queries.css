@@ -1,0 +1,49 @@
+@media (max-width: 106em) {
+    .main_nav-list {
+        gap: 2.2rem;
+    }
+}
+
+@media (max-width: 98em) {
+    .fixed-icons {
+        right: 5%;
+    }
+
+    /* move the available notification to the left (next to logo) */
+    .available-responsive {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .available-main {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    /* make images in the about section smaller */
+    .img-torus {
+        height: 12rem;
+    }
+
+    .img-code {
+        height: 18rem;
+    }
+
+    .about--img-torus {
+        left: 20%;
+    }
+
+    .about--img-code {
+        top: 56%;
+        left: 55%;
+    }
+}
+
+/* respond to smaller desktop devices */
+@media (max-width: 85rem) {
+    .container {
+        max-width: 115rem;
+    }
+}

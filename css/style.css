@@ -43,6 +43,17 @@
     animation: drop-available 700ms ease-in-out 3500ms backwards;
 }
 
+.available-small {
+    display: flex;
+    gap: 3.2rem;
+}
+
+.available-responsive {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 @keyframes shake {
     0% {
         transform: translateX(-0.2rem);
