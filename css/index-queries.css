@@ -141,6 +141,30 @@
 }
 
 @media (max-width: 61em) {
+    .project-item {
+        column-gap: 3.2rem;
+        row-gap: 2.4rem;
+    }
+    .project-img {
+        width: 60rem;
+    }
+
+    .project-name {
+        font-size: 2.2rem;
+    }
+
+    .project-description {
+        order: 3;
+        grid-column: 1 span 2;
+    }
+
+    .tags--featured {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .projects--other-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -148,7 +172,7 @@
     }
 
     .project--other-item {
-        width: 36rem;
+        width: 40rem;
     }
 
     .project-link--other {

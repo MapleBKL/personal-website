@@ -786,6 +786,10 @@
     grid-column: 2;
 }
 
+.tag-group {
+    display: inline;
+}
+
 .tag {
     display: inline-block;
     font-size: 1.4rem;
