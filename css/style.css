@@ -365,33 +365,28 @@
     overflow: hidden;
 }
 
-.greeting--former {
-    text-align: right;
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-    color: #d9dffc;
-    letter-spacing: -0.7px;
-    animation: reveal-time 800ms cubic-bezier(0.27, 0.97, 0.6, 1) 1200ms
-        backwards;
-}
-
-.greeting--current {
-    text-align: right;
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-    color: #8ea0f5;
-    letter-spacing: -0.7px;
-    animation: reveal-time 800ms cubic-bezier(0.27, 0.97, 0.6, 1) 1200ms
-        backwards;
-}
-
+.greeting--former,
+.greeting--current,
 .greeting--future {
     text-align: right;
     font-size: 2.8rem;
-    color: #4361ee;
     letter-spacing: -0.7px;
     animation: reveal-time 800ms cubic-bezier(0.27, 0.97, 0.6, 1) 1200ms
         backwards;
+}
+
+.greeting--former {
+    margin-bottom: 1rem;
+    color: #d9dffc;
+}
+
+.greeting--current {
+    margin-bottom: 1rem;
+    color: #8ea0f5;
+}
+
+.greeting--future {
+    color: #4361ee;
 }
 
 @keyframes reveal-time {
@@ -763,11 +758,20 @@
     gap: 2.4rem;
 }
 
-.project-header {
-    font-size: 1.8rem;
+.project-description {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 2.4rem;
+    align-items: flex-start;
+    /* justify-content: space-between; */
+}
+
+.project-title {
+    font-size: 1.8rem;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .project-name {

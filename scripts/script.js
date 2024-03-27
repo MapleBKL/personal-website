@@ -7,7 +7,7 @@ console.log(`██╗   ██╗██╗███╗   ██╗████�
 
 const header = document.querySelector(".header");
 const headerPlaceholder = document.querySelector(".header-placeholder");
-const availableTag = document.querySelector(".available");
+const availableTags = document.querySelectorAll(".available");
 
 const sections = document.querySelectorAll(".section");
 const sectionAbout = document.querySelector(".section_about");
@@ -287,7 +287,9 @@ sections.forEach((s) => sectionObserver.observe(s));
 const shakeAvailable = function (entries, observer) {
     const [entry] = entries;
     if (entry.isIntersecting) {
-        availableTag.style.animation = "shake 230ms ease-in-out 4000ms";
+        availableTags.forEach(
+            (tag) => (tag.style.animation = "shake 230ms ease-in-out 4000ms")
+        );
         btnLinkedIn.style.animation = "blink-linkedin 1500ms linear 1800ms";
         observer.unobserve(entry.target);
     }
