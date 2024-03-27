@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Google Font: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/projects.css" />
+        <script src="../scripts/projects.js" defer></script>
+        <title>Yinfeng Lu &dash; Projects &vert; Berkeley Map</title>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="navigation">
+                <a href="#" class="logo-refresh"
+                    ><img
+                        src="../img/logo-transparent.png"
+                        alt="a logo with a capital Y next to a calpital L"
+                        class="logo"
+                    />
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#introduction" class="nav-link"
+                                >introduction</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#overview" class="nav-link">overview</a>
+                        </li>
+                        <li>
+                            <a href="#technical" class="nav-link">details</a>
+                        </li>
+                        <li>
+                            <a href="#lessons" class="nav-link"
+                                >lessons learned</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#extension" class="nav-link"
+                                >possible extensions</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="back-to-top">Back to top</a>
+            </div>
+            <div class="project-content">
+                <header>
+                    <div class="header-main">
+                        <div class="header-img-container">
+                            <img
+                                src="../img/projects/cytometry/result.png"
+                                alt="scientific plots showing research results"
+                                class="header-img-img"
+                            />
+                            <h2 class="header-img-text">Berkeley Map</h2>
+                        </div>
+                        <div class="header-secondary">
+                            <div class="tags">
+                                <div class="tag-group">
+                                    <p>Languages</p>
+                                    <div>
+                                        <span class="tag tag--lang">Java</span>
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Libraries &amp; Frameworks</p>
+                                    <div>
+                                        <span class="tag tag--framework"
+                                            >Spark</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Topics</p>
+                                    <div>
+                                        <span class="tag tag--general"
+                                            >Backend</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Algorithms</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Data Structures</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-disable">
+                                    View Live
+                                </button>
+                                <button class="btn btn-enable">
+                                    Request Source
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            Why can&apos;t I view it live? &mdash; Per
+                            university policies, this project cannot be made
+                            live.
+                        </p>
+                        <p>
+                            Why can&apos;t I view the source code directly?
+                            &mdash; Again, per university policies, the source
+                            code of this project cannot be made publicly
+                            available. However, feel free to send me a request,
+                            and I&apos;ll happily share it with you for private
+                            examination!
+                        </p>
+                    </div>
+                </header>
+                <main class="main-content">
+                    <section class="section introduction" id="introduction">
+                        <h3 class="header--intro">introduction</h3>
+                        <p>
+                            Though I have never taken the computer science
+                            trilogy at UC Berkeley (CS 61A, 61B, and 61C), I did
+                            self-study them when I started to learn computer
+                            science by myself. Thanks to my alumni identity, I
+                            could easily access all the course materials,
+                            including auto-graders. Therefore, this trilogy got
+                            me serious about computer science very quickly.
+                            Berkeley Map was the final project for CS 61B
+                            &mdash; algorithms &amp; data structures.
+                        </p>
+                        <p>
+                            Through this project, I took a peek at how frontend
+                            and backend interact with each other in a web
+                            application, and how Java plays a crucial role in
+                            the backend. As a bonus, this project also lent me
+                            some insight into how raster map applications are
+                            implemented.
+                        </p>
+                    </section>
+                    <section class="section overview" id="overview">
+                        <h3 class="header--overview">overview</h3>
+                        <p>This project consists of three parts:</p>
+                        <ol>
+                            <li>
+                                Map rastering: according to the user's viewing
+                                location, zoom level, and viewport size, compute
+                                the 2D array of map blocks that cover the user's
+                                request.
+                            </li>
+                            <li>
+                                Graph building: all the map data (locations and
+                                roads) are stored in an XML file. The task is to
+                                parse the XML file and convert the entire map
+                                data into a graph.
+                            </li>
+                            <li>
+                                Route searching: according to the start and end
+                                locations the user selects on the map, compute
+                                the shortest path that leads from the start
+                                location to the end location.
+                            </li>
+                        </ol>
+                        <p>
+                            There are two additional tasks for part 3 (route
+                            searching): generating plain English navigation
+                            instructions, and displaying autocomplete
+                            suggestions when the user is searching for a
+                            location.
+                        </p>
+                    </section>
+                    <section class="section technical" id="technical">
+                        <h3 class="header--technical">details</h3>
+                        <h4>Map Rastering</h4>
+                        <p>
+                            This task is relatively easy (apaproximately
+                            equivalent to a LeetCode medium-level problem).
+                            After some careful mathematical manipulations, one
+                            could easily deduce the algorithm. The data
+                            (latitude, longitude, zoom level, viewport size,
+                            etc.) is stored in the browser as a JavaScript
+                            object, the task is to parse this object and
+                            retrieve all the necessary information, and then
+                            compute the 2D array of map blocks that the frontend
+                            needs to display the required region at the required
+                            zoom level.
+                        </p>
+                        <h4>Graph Building</h4>
+                        <p>
+                            This task feels more like a real world (i.e.
+                            industry) task. I was given a massive XML file
+                            filled with complicated map data (locations for
+                            nodes and roads for edges), and I was given a tool
+                            that I had never used before (an XML parser called
+                            the SAX parser), and the task was to figure out how
+                            to use the provided parser to parse the provided XML
+                            file.
+                        </p>
+                        <p>
+                            This task took me quite some time, and after a lot
+                            of Googling and trying around, I eventually figured
+                            out how to use the parser. The remaining task of
+                            this part is easier: construct a graph (represented
+                            as an adjacency list) out of the parsed map data.
+                        </p>
+                        <h4>Route Searching</h4>
+                        <p>
+                            This is the most fun part of the project. The user
+                            can click two arbitrary locations on the map, and
+                            the task is to compute the shortest path leading
+                            from one location to the other. The selected
+                            locations are received by the routing endpoint, and
+                            the first task is to parse the JavaScript object.
+                            The second step is to find the closest locations on
+                            the map to the user-selected locations (since we are
+                            searching in the graph, clearly we first need to
+                            convert the arbitrarily chosen locations onto the
+                            graph). The next step is then to perform an A*
+                            search. The shortest path is sent back to the
+                            frontend and displayed on the map.
+                        </p>
+                        <h4>Additional Tasks</h4>
+                        <p>
+                            However, this is not the end of it. For fun and for
+                            more practice, I implemented two additional features
+                            that improved user experience.
+                        </p>
+                        <p>
+                            Plain English navigation instructions: once the
+                            shortest path is computed, the backend then
+                            generates a series of navigation instructions (e.g.
+                            continue straight on Maple Street for 1.5miles, turn
+                            left onto Euclid Avenue, etc.), which are then sent
+                            back to the frontend and displayed.
+                        </p>
+                        <p>
+                            Autocomplete suggestions: when the user starts
+                            typing in the search bar, a list of locations in the
+                            map database that start with the user's current
+                            input is displayed under the search bar.
+                        </p>
+                    </section>
+                    <section class="section lessons" id="lessons">
+                        <h3 class="header--lessons">lessons learned</h3>
+                        <p>
+                            Through this project, I learned and practiced a lot:
+                        </p>
+                        <ol>
+                            <li>
+                                How do the frontend and backend in a web
+                                application communicate.
+                            </li>
+                            <li>
+                                What is the role of backend in a web
+                                application.
+                            </li>
+                            <li>
+                                How does a rastering mapping application respond
+                                to user inputs (clicking, dragging, and
+                                scrolling).
+                            </li>
+                            <li>How is the map database build.</li>
+                            <li>Graph search algorithms.</li>
+                            <li>
+                                How is autocomplete suggestions made possible
+                                with a trie.
+                            </li>
+                            <li>General Java programming practices.</li>
+                        </ol>
+                    </section>
+                    <section class="section extension" id="extension">
+                        <h3 class="header--extension">possible extensions</h3>
+                        <p>If I had more time, I would do the following:</p>
+                        <ol class="more">
+                            <li>Improve the UI.</li>
+                            <li>
+                                Integrate some of the work to the frontend. In
+                                this project, the backend is responsible for
+                                drawing the routes on the map. However, a better
+                                approach (that reduces the workload of the
+                                backend) would be to pass the route information
+                                to the frontend, and let the user's browser draw
+                                the route.
+                            </li>
+                        </ol>
+                    </section>
+                </main>
+                <aside class="footer">
+                    <span class="copyright"
+                        >&copy; 2024 Yinfeng Lu. All rights reserved.</span
+                    >
+                </aside>
+            </div>
+        </div>
+    </body>
+</html>

@@ -37,6 +37,13 @@ const projectOtherContainer = document.querySelector(
 const projectsFeatured = document.querySelectorAll(".project-item");
 const projectsOther = document.querySelectorAll(".project-link--other");
 
+const logo = document.querySelector(".logo-refresh");
+
+logo.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.reload();
+});
+
 // Animation
 // sticky nav bar + back-to-top button
 const navHeight = header.getBoundingClientRect().height;

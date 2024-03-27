@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Google Font: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/projects.css" />
+        <script src="../scripts/projects.js" defer></script>
+        <title>
+            Yinfeng Lu &dash; Projects &vert; Cytometry Autogating Pipeline
+        </title>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="navigation">
+                <a href="#" class="logo-refresh"
+                    ><img
+                        src="../img/logo-transparent.png"
+                        alt="a logo with a capital Y next to a calpital L"
+                        class="logo"
+                    />
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#introduction" class="nav-link"
+                                >introduction</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#overview" class="nav-link">overview</a>
+                        </li>
+                        <li>
+                            <a href="#technical" class="nav-link">details</a>
+                        </li>
+                        <li>
+                            <a href="#extension" class="nav-link"
+                                >possible extensions</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="back-to-top">Back to top</a>
+            </div>
+            <div class="project-content">
+                <header>
+                    <div class="header-main">
+                        <div class="header-img-container">
+                            <img
+                                src="../img/projects/cytometry/result.png"
+                                alt="scientific plots showing research results"
+                                class="header-img-img"
+                            />
+                            <h2 class="header-img-text">
+                                Cytometry Autogating Pipeline
+                            </h2>
+                        </div>
+                        <div class="header-secondary">
+                            <div class="tags">
+                                <div class="tag-group">
+                                    <p>Languages</p>
+                                    <div>
+                                        <span class="tag tag--lang"
+                                            >Python</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Libraries &amp; Frameworks</p>
+                                    <div>
+                                        <span class="tag tag--framework"
+                                            >PyTorch</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Numpy</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Pandas</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Matplotlib</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Topics</p>
+                                    <div>
+                                        <span class="tag tag--general"
+                                            >Research</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Machine Learning</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-disable">
+                                    View Live
+                                </button>
+                                <a
+                                    href="https://github.com/MapleBKL/cytometry-autogating"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="source-link source-link-enable"
+                                >
+                                    View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            Why can&apos;t I view it live? &mdash; This is not a
+                            web application.
+                        </p>
+                        <p>
+                            <em
+                                >This article is only meant to be a high-level
+                                description that walks you through the project.
+                                It should give you a basic idea of what this
+                                project is about. For a more detailed
+                                documentation, please visit the source code
+                                repository.</em
+                            >
+                        </p>
+                    </div>
+                </header>
+                <main class="main-content">
+                    <section class="section introduction" id="introduction">
+                        <h3 class="header--intro">introduction</h3>
+                        <p>
+                            While I was pursuing my masters&apos; degree in
+                            mathematics at the University of Pennsylvania, I
+                            joined Shen Lab &mdash; a bioinformatics research
+                            lab at the Perelman School of Medicine, UPenn.
+                            Together with a fellow student researcher, we
+                            developed an automated mass-cytometry data
+                            preprocessing pipeline. The goal of the Cytometry
+                            Autogating Pipeline was to automate the pregating
+                            workflow in processing mass-cytometry data.
+                            Previously, colleague researchers were manually
+                            pregating each data file, and our pipeline fully
+                            automated this tedious task.
+                        </p>
+                    </section>
+                    <section class="section overview" id="overview">
+                        <h3 class="header--overview">overview</h3>
+                        <p>
+                            Mass-cytometry data analysis workflow consists of a
+                            sequence of gating procedures, each defined by a
+                            pair of proteins.
+                        </p>
+                        <img
+                            src="../img/projects/cytometry/structure.png"
+                            alt="a tree structure of mass-cytometry gates"
+                            class="structure"
+                        />
+                        <p>
+                            While most of the subsequent gates are quite
+                            consistant, the first two gates (the so-called
+                            pregates) vary significantly from subject to
+                            subject. The reason behind it is that these pregates
+                            inlcude a large amount of erroneous data that
+                            originates from defective equipments. Thus, the
+                            purpose of the pregates is to filter out (almost)
+                            all the erroneous data. Traditional algorithms apply
+                            well to the subsequent gates, but the pregates had
+                            been determined manually. To tackle this problem, we
+                            trained an adapted version of the U-net to perform
+                            the pregating procedure, and we later expanded it to
+                            a fully automated pipeline. Users simply input the
+                            CSV file with raw cytometry readings, and the
+                            pipeline generates a gated CSV file along with a
+                            comprehensive plot report.
+                        </p>
+                        <p>File structure of this project:</p>
+                        <pre>
+    Unet
+    │
+    ├── gen_image_label.py
+    ├── general_utils.py
+    ├── my_dataset.py
+    ├── predict.py
+    ├── train.py
+    ├── visualize.py
+    │
+    ├── src
+    │   ├── __init__.py
+    │   └── unet.py
+    │
+    └── train_utils
+        ├── __init__.py
+        ├── dice_coefficient_loss.py
+        ├── distributed_utils.py
+        └── train_and_eval.py
+                        </pre>
+                    </section>
+                    <section class="section technical" id="technical">
+                        <h3 class="header--technical">details</h3>
+                        <p>
+                            Below is an image description of our cytometry
+                            autogating pipeline.
+                        </p>
+                        <img
+                            src="../img/projects/cytometry/unet.png"
+                            alt="a graphical representation of a data-processing pipeline"
+                            class="unet"
+                        />
+                        <h4>Step 1</h4>
+                        <p>
+                            The first step is to scale down the raw data. Each
+                            raw data CSV file contains approximately 400,000
+                            data entries, which leads to an overwhelming
+                            resolution in a truthful representation. Therefore,
+                            we need to compress the representation to create
+                            manageable training images. After careful
+                            calculations, we came up with a linear
+                            transformation that compresses gate-1 data into
+                            166&times;166 images and gate-2 data into
+                            256&times;256 images. These images are density
+                            images, in which the value for each pixel represents
+                            the number of cells landing at this pixel after the
+                            linear transformation. The masks are compressed
+                            accordingly.
+                        </p>
+                        <h4>Step 2</h4>
+                        <p>
+                            Once we have the images and masks ready, the next
+                            step is to divide them into
+                            training/validation/testing datasets. When we were
+                            working on this project, we only had access to about
+                            65 data records. Therefore, we divided them into 50
+                            for training, 10 for validation, and 5 for testing.
+                            One might think this dataset is too small, but we
+                            could argue that we were not trying to distinguish
+                            between completely unrelated objects. Instead, the
+                            defective readings we were trying to filter out all
+                            shared some similar features.
+                        </p>
+                        <h4>Step 3</h4>
+                        <p>
+                            The next step is to train the model. During the
+                            training process, basic metric information
+                            (including loss value, learning rate, dice
+                            coefficient, global correct rate, class-wise correct
+                            rate, class-wise IOU value, and mean IOU value) will
+                            be displayed and logged. After the training
+                            completes, the best model is saved.
+                        </p>
+                        <h4>Step 4</h4>
+                        <p>
+                            Once we have trained the model, we can start
+                            autogating raw cytometry data. This step requires
+                            only one line of command! The raw cytometry data is
+                            first compressed to a 166&times;166 image for gate-1
+                            autogating. After gate-1 procedure finishes, the
+                            autogating result is applied to the raw data and a
+                            subsequent 256&times;256 image for gate-2 autogating
+                            is generated. After gate-2 procedure finishes, the
+                            autogating result is again applied to the previous
+                            result generated by gate-1 autogating, and the
+                            resulting gated CSV file is automatically saved. The
+                            result file contains autogating markers for both
+                            gates.
+                        </p>
+                        <p>
+                            The up-scaling process is simple: we first apply the
+                            corresponding linear transformation defined above to
+                            each cell, and then check whether the transformed
+                            pixel is marked or not.
+                        </p>
+                        <h4>Step 5</h4>
+                        <p>
+                            After autogating finishes, detailed plot report can
+                            be generated with a single command. The image below
+                            shows an example output:
+                        </p>
+                        <img
+                            src="../img/projects/cytometry/result.png"
+                            alt="scientific plots showing research results"
+                        />
+                    </section>
+                    <section class="section extension" id="extension">
+                        <h3 class="header--extension">possible extensions</h3>
+                        <p>If we had more time, we would do the following:</p>
+                        <ol class="more">
+                            <li>
+                                Modify the U-net loss calculation formula to
+                                better rule out an occasional aggregation near
+                                the origin.
+                            </li>
+                            <li>
+                                Write a graphical user interface for the
+                                pipeline.
+                            </li>
+                        </ol>
+                    </section>
+                </main>
+                <aside class="footer">
+                    <span class="copyright"
+                        >&copy; 2024 Yinfeng Lu. All rights reserved.</span
+                    >
+                </aside>
+            </div>
+        </div>
+    </body>
+</html>

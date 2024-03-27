@@ -21,11 +21,23 @@ body {
     grid-template-columns: 28rem auto;
 }
 
+.logo-refresh {
+    width: 5.2rem;
+}
+
+.logo {
+    height: 4.8rem;
+}
+
 .navigation {
     display: flex;
     flex-direction: column;
-    justify-self: center;
+    justify-self: flex-end;
     gap: 16rem;
+    padding-top: 4.8rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 nav {
@@ -35,12 +47,63 @@ nav {
     justify-content: center;
 }
 
-li {
+ul li {
     list-style: none;
 }
 
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    text-decoration: none;
+    color: #999;
+    font-weight: 500;
+    font-size: 1.6rem;
+    transition: all 300ms;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: #4361ee;
+}
+
+.back-to-top:link,
+.back-to-top:visited {
+    width: 8.8rem;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    position: relative;
+}
+
+.back-to-top:hover,
+.back-to-top:active {
+    color: #4361ee;
+}
+
+.back-to-top::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.4rem;
+    height: 0.1rem;
+    width: 0%;
+    background-color: #4361ee;
+    transition: all 300ms;
+}
+
+.back-to-top:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 .project-content {
-    max-width: 110rem;
+    width: 110rem;
     padding-top: 4.8rem;
     display: flex;
     flex-direction: column;
@@ -74,7 +137,9 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     width: 100%;
+    object-fit: cover;
     z-index: -1;
 }
 
@@ -83,6 +148,12 @@ header {
     padding: 0 0 1.2rem 1.2rem;
     font-size: 3.6rem;
     font-weight: 500;
+}
+
+.header-secondary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tags {
@@ -127,10 +198,70 @@ header {
     background-color: #eadcfc;
 }
 
+.buttons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.btn {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 9px;
+    transition: all 300ms;
+}
+
+.btn-enable {
+    color: #f7f7f7;
+    background-color: #4361ee;
+}
+
+.btn-disable {
+    color: #f7f7f7;
+    background-color: rgba(67, 98, 238, 0.5);
+}
+
+.btn.btn-enable:hover {
+    cursor: pointer;
+    background-color: #2f44a7;
+}
+
+.source-link:link,
+.source-link:visited {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 9px;
+    transition: all 300ms;
+}
+
+.source-link.source-link-enable:link,
+.source-link.source-link-enable:visited {
+    color: #f7f7f7;
+    background-color: #4361ee;
+}
+
+.source-link.source-link-enable:hover,
+.source-link.source-link-enable:active {
+    background-color: #2f44a7;
+}
+
+.explanation {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #777;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
 /* ---------- MAIN CONTENT ---------- */
 section {
     max-width: 90rem;
-    margin: 8.8rem 0;
+    margin: 9.6rem 0;
 }
 
 h3 {
@@ -140,4 +271,48 @@ h3 {
     font-weight: 600;
     color: #4361ee;
     margin-bottom: 4rem;
+}
+
+section p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+}
+
+section img {
+    width: 100%;
+    margin: 3.2rem 0;
+    border-radius: 9px;
+}
+
+pre {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    background-color: #eee;
+    border-radius: 9px;
+}
+
+h4 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 3.2rem;
+    margin-bottom: 1.4rem;
+}
+
+ol {
+    padding-left: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    gap: 1.4rem;
+}
+
+li {
+    line-height: 1.8;
+}
+
+aside {
+    font-size: 1.4rem;
+    color: #777;
+    padding-bottom: 3.2rem;
 }
