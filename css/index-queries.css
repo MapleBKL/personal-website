@@ -141,28 +141,6 @@
 }
 
 @media (max-width: 61em) {
-    .project-item {
-        display: flex;
-    }
-
-    .project-img {
-        flex: 1;
-    }
-
-    .project-text {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tags--featured {
-        order: 1;
-    }
-
-    .project-description {
-        order: 2;
-    }
-
     .projects--other-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
