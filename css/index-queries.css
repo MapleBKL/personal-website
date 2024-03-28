@@ -170,7 +170,7 @@
         row-gap: 3.6rem;
     }
     .project-img {
-        width: 60rem;
+        width: 54rem;
     }
 
     .project-name {
@@ -243,7 +243,7 @@
 
 @media (max-width: 57em) {
     .project-img {
-        width: 52rem;
+        width: 50rem;
     }
 
     .project--other-item {

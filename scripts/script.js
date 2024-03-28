@@ -213,9 +213,9 @@ projectContainer.addEventListener("mouseover", function (e) {
     const target = e.target.closest(".project-item");
     if (!target) return;
     target.querySelector(".project-name").style.color = "#4361ee";
-    // target.querySelector(".project-img").style.transform = "scale(1.1)";
-    projectImgs.forEach((img) => (img.style.filter = "brightness(0.4)"));
-    target.querySelector(".project-img").style.filter = "";
+    target.querySelector(".project-img").style.transform = "scale(1.03)";
+    // projectImgs.forEach((img) => (img.style.filter = "brightness(0.4)"));
+    // target.querySelector(".project-img").style.filter = "";
     const icon = target.querySelector(".bx");
     icon.classList.remove("element--hidden");
     icon.style.color = "#4361ee";
@@ -223,8 +223,8 @@ projectContainer.addEventListener("mouseover", function (e) {
 projectsFeatured.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name").style.color = "#333";
-        // e.target.querySelector(".project-img").style.transform = "scale(1)";
-        projectImgs.forEach((img) => (img.style.filter = ""));
+        e.target.querySelector(".project-img").style.transform = "scale(1)";
+        // projectImgs.forEach((img) => (img.style.filter = ""));
         const icon = e.target.querySelector(".bx");
         icon.classList.add("element--hidden");
         icon.style.color = "#333";
@@ -238,9 +238,9 @@ projectOtherContainer.addEventListener("mouseover", function (e) {
     const target = e.target.closest(".project-link--other");
     if (!target) return;
     target.querySelector(".project-name--other").style.color = "#4361ee";
-    // target.querySelector(".project-img--other").style.transform = "scale(1.15)";
-    projectImgsOther.forEach((img) => (img.style.filter = "brightness(0.4)"));
-    target.querySelector(".project-img--other").style.filter = "";
+    target.querySelector(".project-img--other").style.transform = "scale(1.03)";
+    // projectImgsOther.forEach((img) => (img.style.filter = "brightness(0.4)"));
+    // target.querySelector(".project-img--other").style.filter = "";
     const icon = target.querySelector(".bx");
     icon.classList.remove("element--hidden");
     icon.style.color = "#4361ee";
@@ -248,9 +248,9 @@ projectOtherContainer.addEventListener("mouseover", function (e) {
 projectsOther.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name--other").style.color = "#333";
-        // e.target.querySelector(".project-img--other").style.transform =
-        //     "scale(1)";
-        projectImgsOther.forEach((img) => (img.style.filter = ""));
+        e.target.querySelector(".project-img--other").style.transform =
+            "scale(1)";
+        // projectImgsOther.forEach((img) => (img.style.filter = ""));
         const icon = e.target.querySelector(".bx");
         icon.classList.add("element--hidden");
         icon.style.color = "#333";
