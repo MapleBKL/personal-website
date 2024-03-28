@@ -151,7 +151,7 @@
 @media (max-width: 61em) {
     .project-item {
         column-gap: 3.6rem;
-        row-gap: 4.4rem;
+        row-gap: 3.6rem;
     }
     .project-img {
         width: 60rem;
@@ -332,9 +332,41 @@
         visibility: visible;
         pointer-events: auto;
     }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5.6rem;
+    }
+
+    .contact-form {
+        order: 2;
+    }
+
+    .contact-alt {
+        order: 1;
+        gap: 1.8rem;
+    }
+
+    .header--cta {
+        margin-bottom: 3.6rem;
+    }
+
+    .about--img-torus {
+        left: 35%;
+        top: 40%;
+    }
+
+    .about--img-code {
+        top: 65%;
+        left: 60%;
+    }
 }
 
 @media (max-width: 50em) {
+    .container {
+        padding: 8.8rem 9.6rem;
+    }
     .project-container {
         gap: 1.8rem;
     }
@@ -347,7 +379,7 @@
 
     .project-description {
         order: 3;
-        gap: 0.8rem;
+        gap: 1.4rem;
     }
 
     .tags--featured {
@@ -388,44 +420,53 @@
     .projects--other-container {
         display: flex;
         flex-direction: column;
+        gap: 1.8rem;
     }
 
     .project--other-item {
         width: 100%;
         display: flex;
         flex-direction: column;
+        gap: 1.4rem;
+        padding: 3.2rem;
     }
 
-    .project--other-item {
-        position: relative;
-    }
-
-    .project-img--other-container::before {
-        content: "";
-        display: block;
-        padding-top: 56.25%;
-    }
-
-    .project-img--other-container {
-        width: 100%;
-        /* background-image: linear-gradient(#0d1330, #00000000); */
-        background-image: linear-gradient(#f7f7f799, #00000000);
-        position: relative;
-    }
-
-    .project-img--other {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        z-index: -1;
+    .project--other-item .tags {
+        order: 2;
     }
 
     .project--other-item .project-title {
-        position: absolute;
-        top: 1.2rem;
-        left: 2.4rem;
+        order: 3;
+    }
+
+    .project-name--other {
+        padding: 0;
+    }
+
+    .project-content--other {
+        order: 4;
+    }
+
+    .about--text {
+        gap: 1.6rem;
+    }
+
+    .about--text p {
+        font-size: 1.6rem;
+        line-height: 1.8;
+    }
+
+    .experience-container-item {
+        gap: 1.4rem;
+    }
+
+    .education,
+    .research {
+        gap: 1.2rem;
+        margin-left: 5rem;
+    }
+
+    .skill-container {
+        gap: 1.6rem;
     }
 }
