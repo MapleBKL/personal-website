@@ -37,6 +37,8 @@ const projectOtherContainer = document.querySelector(
 );
 const projectsFeatured = document.querySelectorAll(".project-item");
 const projectsOther = document.querySelectorAll(".project-link--other");
+const projectImgs = document.querySelectorAll(".project-img");
+const projectImgsOther = document.querySelectorAll(".project-img--other");
 
 const logo = document.querySelector(".logo-refresh");
 
@@ -49,6 +51,8 @@ logo.addEventListener("click", function (e) {
 
 // Animation
 // sticky nav bar + back-to-top button
+const navHeight = header.getBoundingClientRect().height;
+
 const showNav = function (entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) {
@@ -63,6 +67,7 @@ const showNav = function (entries) {
 const navObserver = new IntersectionObserver(showNav, {
     root: null,
     threshold: 0,
+    rootMargin: `-${navHeight}px`,
 });
 navObserver.observe(headerContainer);
 
@@ -201,14 +206,16 @@ externalText.addEventListener("mouseleave", function () {
 });
 
 // In the PROJECTS section, when hovering cursor over a featured project,
-// 1. image enlarges
+// 1. other featured project images turn grey
 // 2. project name turns blue
 // 3. external link icon reveals next to project name
 projectContainer.addEventListener("mouseover", function (e) {
     const target = e.target.closest(".project-item");
     if (!target) return;
     target.querySelector(".project-name").style.color = "#4361ee";
-    target.querySelector(".project-img").style.transform = "scale(1.1)";
+    // target.querySelector(".project-img").style.transform = "scale(1.1)";
+    projectImgs.forEach((img) => (img.style.filter = "brightness(0.4)"));
+    target.querySelector(".project-img").style.filter = "";
     const icon = target.querySelector(".bx");
     icon.classList.remove("element--hidden");
     icon.style.color = "#4361ee";
@@ -216,7 +223,8 @@ projectContainer.addEventListener("mouseover", function (e) {
 projectsFeatured.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name").style.color = "#333";
-        e.target.querySelector(".project-img").style.transform = "scale(1)";
+        // e.target.querySelector(".project-img").style.transform = "scale(1)";
+        projectImgs.forEach((img) => (img.style.filter = ""));
         const icon = e.target.querySelector(".bx");
         icon.classList.add("element--hidden");
         icon.style.color = "#333";
@@ -224,13 +232,15 @@ projectsFeatured.forEach((p) =>
 );
 
 // In the PROJECT section, when hovering cursor over an other project
-// 1. image enlarges
+// 1. other project images turn grey
 // 2. project name turns blue
 projectOtherContainer.addEventListener("mouseover", function (e) {
     const target = e.target.closest(".project-link--other");
     if (!target) return;
     target.querySelector(".project-name--other").style.color = "#4361ee";
-    target.querySelector(".project-img--other").style.transform = "scale(1.15)";
+    // target.querySelector(".project-img--other").style.transform = "scale(1.15)";
+    projectImgsOther.forEach((img) => (img.style.filter = "brightness(0.4)"));
+    target.querySelector(".project-img--other").style.filter = "";
     const icon = target.querySelector(".bx");
     icon.classList.remove("element--hidden");
     icon.style.color = "#4361ee";
@@ -238,8 +248,9 @@ projectOtherContainer.addEventListener("mouseover", function (e) {
 projectsOther.forEach((p) =>
     p.addEventListener("mouseleave", function (e) {
         e.target.querySelector(".project-name--other").style.color = "#333";
-        e.target.querySelector(".project-img--other").style.transform =
-            "scale(1)";
+        // e.target.querySelector(".project-img--other").style.transform =
+        //     "scale(1)";
+        projectImgsOther.forEach((img) => (img.style.filter = ""));
         const icon = e.target.querySelector(".bx");
         icon.classList.add("element--hidden");
         icon.style.color = "#333";
@@ -271,7 +282,7 @@ const revealSection = function (entries, observer) {
 
 const sectionObserver = new IntersectionObserver(revealSection, {
     root: null,
-    threshold: 0.18,
+    threshold: 0.1,
 });
 
 sections.forEach((s) => sectionObserver.observe(s));
