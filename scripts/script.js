@@ -10,6 +10,7 @@ const headerPlaceholder = document.querySelector(".header-placeholder");
 const availableTags = document.querySelectorAll(".available");
 
 const sections = document.querySelectorAll(".section");
+const sectionHero = document.querySelector(".section_hero");
 const sectionAbout = document.querySelector(".section_about");
 const sectionExperience = document.querySelector(".section_experience");
 const sectionSkills = document.querySelector(".section_skills");
@@ -39,6 +40,8 @@ const projectsOther = document.querySelectorAll(".project-link--other");
 
 const logo = document.querySelector(".logo-refresh");
 
+const btnMobileNav = document.querySelector(".btn-mobile-nav");
+
 logo.addEventListener("click", function (e) {
     e.preventDefault();
     window.location.reload();
@@ -46,31 +49,20 @@ logo.addEventListener("click", function (e) {
 
 // Animation
 // sticky nav bar + back-to-top button
-const navHeight = header.getBoundingClientRect().height;
-
 const showNav = function (entries) {
     const [entry] = entries;
-    if (entry.isIntersecting) {
-        header.style.top = `-${navHeight}px`;
-        setTimeout(() => {
-            header.classList.remove("sticky-nav");
-            headerPlaceholder.style.height = "0";
-        }, 150);
-        btnBackToTop.classList.add("element--hidden");
+    if (!entry.isIntersecting) {
+        document.body.classList.add("sticky");
     } else {
-        header.style.top = "0";
-        header.classList.add("sticky-nav");
-        headerPlaceholder.style.height = `${navHeight}px`;
-        btnBackToTop.classList.remove("element--hidden");
+        document.body.classList.remove("sticky");
     }
 };
 
-const headerObserver = new IntersectionObserver(showNav, {
+const navObserver = new IntersectionObserver(showNav, {
     root: null,
     threshold: 0,
-    rootMargin: `-${navHeight}px`,
 });
-headerObserver.observe(headerContainer);
+navObserver.observe(headerContainer);
 
 // back to top button implementation
 btnBackToTop.addEventListener("click", function (e) {
@@ -301,3 +293,8 @@ const availableObserver = new IntersectionObserver(shakeAvailable, {
 });
 
 availableObserver.observe(sectionCta);
+
+// mobile nav menu button
+btnMobileNav.addEventListener("click", function () {
+    header.classList.toggle("nav-open");
+});

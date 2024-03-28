@@ -150,8 +150,8 @@
 
 @media (max-width: 61em) {
     .project-item {
-        column-gap: 3.2rem;
-        row-gap: 2.4rem;
+        column-gap: 3.6rem;
+        row-gap: 4.4rem;
     }
     .project-img {
         width: 60rem;
@@ -163,7 +163,7 @@
 
     .project-description {
         order: 3;
-        grid-column: 1 span 2;
+        grid-column: 1 / -1;
     }
 
     .tags--featured {
@@ -234,9 +234,77 @@
         grid-template-columns: 1fr 1fr;
         grid-row: 1fr 1fr;
         column-gap: 2.4rem;
+        row-gap: 4.8rem;
     }
 
     .skill-container {
         display: flex;
+        flex-direction: column;
+        gap: 2.2rem;
+    }
+
+    .skill-header {
+        gap: 1.4rem;
+    }
+
+    .skills-list {
+        gap: 1.4rem;
+    }
+}
+
+/* from this point on, change nav list to menu icon */
+@media (max-width: 54em) {
+    .project-img {
+        width: 48rem;
+    }
+
+    .btn-mobile-nav {
+        display: block;
+        z-index: 5;
+    }
+
+    .main_nav {
+        background-color: #f7f7f7;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* hide this element */
+        transform: translateX(223%);
+        transition: all 400ms ease-in;
+        padding-right: 0;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .nav-open .main_nav {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(123%);
+    }
+
+    .nav-open .icon-mobile-nav[name="close-outline"] {
+        display: block;
+    }
+
+    .nav-open .icon-mobile-nav[name="menu-outline"] {
+        display: none;
+    }
+
+    .main_nav-list {
+        flex-direction: column;
+        gap: 5.2rem;
+    }
+
+    .main_nav-link:link,
+    .main_nav-link:visited {
+        font-size: 1.8rem;
     }
 }
