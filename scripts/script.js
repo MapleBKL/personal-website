@@ -43,6 +43,9 @@ const projectImgsOther = document.querySelectorAll(".project-img--other");
 const logo = document.querySelector(".logo-refresh");
 
 const btnMobileNav = document.querySelector(".btn-mobile-nav");
+const navPanel = document.querySelector(".main_nav");
+
+//////////
 
 logo.addEventListener("click", function (e) {
     e.preventDefault();
@@ -310,4 +313,12 @@ availableObserver.observe(sectionCta);
 // mobile nav menu button
 btnMobileNav.addEventListener("click", function () {
     header.classList.toggle("nav-open");
+});
+
+// clicking outside of the mobile nav closes it
+document.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (!e.target.closest(".header")) {
+        header.classList.toggle("nav-open");
+    }
 });

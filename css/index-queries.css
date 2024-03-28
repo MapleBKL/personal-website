@@ -302,6 +302,7 @@
         transform: translateX(223%);
         transition: all 400ms ease-in;
         padding-right: 0;
+        touch-action: none;
 
         opacity: 0;
         pointer-events: none;
