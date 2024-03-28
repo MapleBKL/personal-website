@@ -53,8 +53,10 @@ const showNav = function (entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) {
         document.body.classList.add("sticky");
+        btnBackToTop.classList.remove("element--hidden");
     } else {
         document.body.classList.remove("sticky");
+        btnBackToTop.classList.add("element--hidden");
     }
 };
 

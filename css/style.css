@@ -12,8 +12,6 @@
     align-items: center;
     position: relative;
     z-index: 5;
-    background-color: rgba(247, 247, 247, 0.8);
-    backdrop-filter: blur(1.6rem);
 }
 
 .logo-refresh {
@@ -34,6 +32,8 @@
     height: 8rem;
     padding-top: 0;
     padding-bottom: 0;
+    background-color: rgba(241, 241, 241, 0.8);
+    backdrop-filter: blur(1.6rem);
 }
 
 .sticky .section_hero {
@@ -209,15 +209,13 @@
 }
 
 .btns-mobile {
-    display: flex;
-    justify-content: flex-end;
+    display: none;
 }
 
 .btn-mobile-nav {
     border: none;
     background: none;
     cursor: pointer;
-    display: none;
     margin-right: 1.2rem;
 }
 
