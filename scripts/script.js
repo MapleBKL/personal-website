@@ -1,9 +1,12 @@
-console.log(`██╗   ██╗██╗███╗   ██╗███████╗███████╗███╗   ██╗ ██████╗     ██╗     ██╗   ██╗
-╚██╗ ██╔╝██║████╗  ██║██╔════╝██╔════╝████╗  ██║██╔════╝     ██║     ██║   ██║
- ╚████╔╝ ██║██╔██╗ ██║█████╗  █████╗  ██╔██╗ ██║██║  ███╗    ██║     ██║   ██║
-  ╚██╔╝  ██║██║╚██╗██║██╔══╝  ██╔══╝  ██║╚██╗██║██║   ██║    ██║     ██║   ██║
-   ██║   ██║██║ ╚████║██║     ███████╗██║ ╚████║╚██████╔╝    ███████╗╚██████╔╝
-   ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝ \nHey there! Thank you for checking out my website!`);
+console.log(`
+ ██████╗ ██████╗ ███████╗███████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗██╗
+██╔════╝ ██╔══██╗██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝██║
+██║  ███╗██████╔╝█████╗  █████╗     ██║   ██║██╔██╗ ██║██║  ███╗███████╗██║
+██║   ██║██╔══██╗██╔══╝  ██╔══╝     ██║   ██║██║╚██╗██║██║   ██║╚════██║╚═╝
+╚██████╔╝██║  ██║███████╗███████╗   ██║   ██║██║ ╚████║╚██████╔╝███████║██╗
+ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚═╝
+                                                                           
+ \nThank you for checking out my website!`);
 
 const header = document.querySelector(".header");
 const headerPlaceholder = document.querySelector(".header-placeholder");
@@ -317,8 +320,8 @@ btnMobileNav.addEventListener("click", function () {
 
 // clicking outside of the mobile nav closes it
 document.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (!e.target.closest(".header")) {
+    if (!e.target.closest(".header") && header.classList.contains("nav-open")) {
+        e.preventDefault();
         header.classList.toggle("nav-open");
     }
 });
