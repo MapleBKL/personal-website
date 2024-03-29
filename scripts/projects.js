@@ -3,6 +3,8 @@ const navLinks = document.querySelectorAll(".nav-link");
 const nav = document.querySelector(".nav-links");
 const backToTop = document.querySelector(".back-to-top");
 const pageTop = document.querySelector(".layout");
+const demoLink = document.querySelector(".demo-link");
+const sectionFeatures = document.querySelector("#features");
 
 const logo = document.querySelector(".logo-refresh");
 
@@ -41,4 +43,9 @@ nav.addEventListener("click", function (e) {
 backToTop.addEventListener("click", function (e) {
     e.preventDefault();
     pageTop.scrollIntoView({ behavior: "smooth" });
+});
+
+demoLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    sectionFeatures.scrollIntoView({ behavior: "smooth" });
 });

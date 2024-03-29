@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Google Font: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/projects.css" />
+        <script src="../scripts/projects.js" defer></script>
+        <title>Yinfeng Lu &dash; Projects &vert; Sticky Notes</title>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="navigation">
+                <a href="../index.html" class="logo-refresh"
+                    ><img
+                        src="../img/logo-transparent.png"
+                        alt="a logo with a capital Y next to a calpital L"
+                        class="logo"
+                    />
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#introduction" class="nav-link"
+                                >introduction</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#overview" class="nav-link">overview</a>
+                        </li>
+                        <li>
+                            <a href="#technical" class="nav-link">details</a>
+                        </li>
+                        <li>
+                            <a href="#features" class="nav-link">features</a>
+                        </li>
+                        <li>
+                            <a href="#extension" class="nav-link"
+                                >possible extensions</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="back-to-top">Back to top</a>
+            </div>
+            <div class="project-content">
+                <header>
+                    <div class="header-main">
+                        <div class="header-img-container">
+                            <img
+                                src="../img/projects/sticky-notes/cover.png"
+                                alt="scientific plots showing research results"
+                                class="header-img-img"
+                            />
+                            <h2 class="header-img-text">Sticky Notes</h2>
+                        </div>
+                        <div class="header-secondary">
+                            <div class="tags">
+                                <div class="tag-group">
+                                    <p>Languages</p>
+                                    <div>
+                                        <span class="tag tag--lang">C++</span>
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Libraries &amp; Frameworks</p>
+                                    <div>
+                                        <span class="tag tag--framework"
+                                            >Qt</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Topics</p>
+                                    <div>
+                                        <span class="tag tag--general"
+                                            >UI Design</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Desktop Application</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-disable">
+                                    View Live
+                                </button>
+                                <a
+                                    href="https://github.com/MapleBKL/sticky-notes"
+                                    class="source-link source-link-enable"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            Why can&apos;t I view it live? &mdash; This is not a
+                            web application.
+                        </p>
+                    </div>
+                    <a href="#features" class="demo-link"
+                        >Watch a short demo below &darr;</a
+                    >
+                </header>
+                <main class="main-content">
+                    <section class="section introduction" id="introduction">
+                        <h3 class="header--intro">introduction</h3>
+                        <p>
+                            Sticky notes is a practice project I wrote from
+                            scratch after I learned the basics of the Qt
+                            framework. I decided to do this project because I
+                            quite like the sticky notes application that comes
+                            with Windows 11, but I couldn't find a similar
+                            application for my old laptop running Linux with
+                            Xfce-4 desktop. Therefore, I wrote my own sticky
+                            notes application! Most parts of the project are
+                            finished, but there are a few extensions that I will
+                            discuss below.
+                        </p>
+                        <p>Sticky notes running on my Xfce-4 desktop:</p>
+                        <img
+                            src="../img/projects/sticky-notes/xfce4.png"
+                            alt="sticky notes application running on a low-spec linux desktop"
+                        />
+                    </section>
+                    <section class="section overview" id="overview">
+                        <h3 class="header--overview">overview</h3>
+                        <p>This application consists of two parts:</p>
+                        <ol>
+                            <li>
+                                A central panel where you can view and manage
+                                all the active notes.
+                            </li>
+                            <li>Individual notes.</li>
+                        </ol>
+                        <p>
+                            The design is very much like the sticky notes
+                            application on Windows 11. The user first start the
+                            central panel, then from the central panel the user
+                            can create new sticky notes. Each sticky note
+                            supports the following key functionalities:
+                        </p>
+                        <ul>
+                            <li>
+                                Font manipulation: text can be made italic,
+                                bold, and underlined.
+                            </li>
+                            <li>
+                                Color palette: the background color can be
+                                changed to one of eight preconfigured colors at
+                                any time.
+                            </li>
+                            <li>
+                                Always on top: even without focus, the sticky
+                                note can appear above other windows. This
+                                functionality can be toggled.
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="section technical" id="technical">
+                        <h3 class="header--technical">details</h3>
+                        <p>
+                            The UML diagram below shows the structural design of
+                            the application. Note that fields and methods
+                            related to UI elements (buttons, frames, etc.) are
+                            not shown.
+                        </p>
+                        <img
+                            src="../img/projects/sticky-notes/sticky-notes.webp"
+                            alt="a UML diagram for the sticky notes application"
+                        />
+                        <p>
+                            Please note the design choices I took to make the
+                            project better structured. The central panel is only
+                            responsible for the UI (i.e. the view) of the
+                            application, all the functionality implementations
+                            (i.e. the controls) are separated into a class
+                            called Note List. This class manages all the active
+                            notes.
+                        </p>
+                        <p>
+                            A list item is an item that appears on the central
+                            panel. Each list item is uniquely associated to a
+                            note widget. A note widget and its associated list
+                            item are coupled through the signal-and-slot
+                            mechanism of Qt (an event system, similar to that of
+                            JavaScript in terms of concepts). The diagram below
+                            shows part of the coupling.
+                        </p>
+                        <img
+                            src="../img/projects/sticky-notes/listitem-notewidget.webp"
+                            alt="an event coupling relation between a list item and a note widget"
+                            class="img--half"
+                        />
+                        <p>
+                            Every time the user modifies the content of a note
+                            widget, a signal is sent to the associated list
+                            item, and its slot responds by updating its content
+                            accordingly. When the user deletes a note widget, a
+                            signal is sent to the associated list item, which
+                            responds by deleting itself. Similarly, when the
+                            user deletes a list item, the associated note widget
+                            responds by deleting itself. Note this is
+                            simplified, in my application there is also user
+                            confirmation involved.
+                        </p>
+                        <p>
+                            The color picker instance is only constructed when
+                            the user clicks on the color palette button on the
+                            note widget. When the color picker shows up, the UI
+                            on the note widget is automatically hidden. When the
+                            user has picked a new color, the color picker is
+                            automatically hidden (and destructed) and the UI on
+                            the note widget returns. This creates a clean and
+                            intuitive user experience.
+                        </p>
+                        <p>
+                            Finally, the Fixed Height Delegate class is an
+                            auxiliary class that gives a fixed height to each
+                            list item.
+                        </p>
+                    </section>
+                    <section class="section features" id="features">
+                        <h3 class="header--features">key features</h3>
+                        <p>
+                            Below are some key features I have implemented for
+                            this application:
+                        </p>
+                        <ul>
+                            <li>
+                                New note widgets can be created from both the
+                                central panel and other note widgets. This makes
+                                it a lot simpler to create a new note widget
+                                when the central panel is minimized.
+                            </li>
+                            <li>
+                                Manage all the active note widgets in the
+                                central panel.
+                            </li>
+                            <li>
+                                If a note widget does not have focus, its UI is
+                                automatically hidden. This creates a much
+                                cleaner look especially when many note widgets
+                                are open.
+                            </li>
+                            <li>
+                                The text font in a note widget can be modified
+                                (italic, bold, and underline).
+                            </li>
+                            <li>
+                                The background color of a note widget can be
+                                changed to one of eight preconfigured colors at
+                                any time. (Windows 11 sticky notes application
+                                did not implement this!)
+                            </li>
+                            <li>
+                                Pin a note widget on top of other windows. This
+                                makes reference easy.
+                            </li>
+                        </ul>
+                        <p>
+                            Below is a short gif demonstrating these features.
+                        </p>
+                        <img
+                            src="../img/projects/sticky-notes/demo.webp"
+                            alt="a short moving image demonstrating the usage of sticky notes"
+                        />
+                    </section>
+                    <section class="section extension" id="extension">
+                        <h3 class="header--extension">possible extensions</h3>
+                        <p>Some extensions I'm considering implementing:</p>
+                        <ol class="more">
+                            <li>
+                                Sqlite integration. Before the application is
+                                closed, automatically save all the active notes
+                                to a Sqlite database.
+                            </li>
+                            <li>Search for note content.</li>
+                            <li>
+                                Basic settings (e.g. skip dialog before
+                                deleting, open all notes from last time at
+                                startup, etc.) that can be changed in the
+                                central panel.
+                            </li>
+                        </ol>
+                    </section>
+                </main>
+                <aside class="footer">
+                    <span class="copyright"
+                        >&copy; 2024 Yinfeng Lu. All rights reserved.</span
+                    >
+                </aside>
+            </div>
+        </div>
+    </body>
+</html>
