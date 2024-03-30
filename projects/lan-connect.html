@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Google Font: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/projects.css" />
+        <script src="../scripts/projects.js" defer></script>
+        <title>Yinfeng Lu &dash; Projects &vert; LAN Connect</title>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="navigation">
+                <a href="../index.html" class="logo-refresh"
+                    ><img
+                        src="../img/logo-transparent.png"
+                        alt="a logo with a capital Y next to a calpital L"
+                        class="logo"
+                    />
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#introduction" class="nav-link"
+                                >introduction</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#overview" class="nav-link">overview</a>
+                        </li>
+                        <li>
+                            <a href="#technical" class="nav-link">details</a>
+                        </li>
+                        <li>
+                            <a href="#features" class="nav-link">features</a>
+                        </li>
+                        <li>
+                            <a href="#extension" class="nav-link"
+                                >possible extensions</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="back-to-top">Back to top</a>
+            </div>
+            <div class="project-content">
+                <header>
+                    <div class="header-main">
+                        <div class="header-img-container">
+                            <img
+                                src="../img/projects/lan-connect/cover.jpg"
+                                alt="screenshot of the LAN connect application, two clients communicating with the server"
+                                class="header-img-img"
+                            />
+                            <h2 class="header-img-text">LAN Connect</h2>
+                        </div>
+                        <div class="header-secondary">
+                            <div class="tags">
+                                <div class="tag-group">
+                                    <p>Languages</p>
+                                    <div>
+                                        <span class="tag tag--lang">C++</span>
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Libraries &amp; Frameworks</p>
+                                    <div>
+                                        <span class="tag tag--framework"
+                                            >Qt</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="tag-group">
+                                    <p>Topics</p>
+                                    <div>
+                                        <span class="tag tag--general"
+                                            >OO Architecture</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Network Programming</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Desktop Application</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-disable">
+                                    View Live
+                                </button>
+                                <a
+                                    href="https://github.com/MapleBKL/LAN_message_and_file_transfer"
+                                    class="source-link source-link-enable"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            Why can&apos;t I view it live? &mdash; This is not a
+                            web application.
+                        </p>
+                    </div>
+                    <a href="#features" class="demo-link"
+                        >Watch a short demo below &darr;</a
+                    >
+                </header>
+                <main class="main-content">
+                    <section class="section introduction" id="introduction">
+                        <h3 class="header--intro">introduction</h3>
+                        <p>
+                            LAN Connect is a practice project I wrote from
+                            scratch after I learned the basics of the Qt
+                            framework and network (socket) programming. I found
+                            it fascinating that two machines on the same local
+                            area network can easily communicate with each other
+                            using the socket API provided by the transport
+                            layer, so I couldn&apos;t wait to write my own local
+                            area network communication application after
+                            learning the principles. This project was quite a
+                            challenge to me back then, but looking at it now, I
+                            feel a lot can be improved or extended. I will
+                            discuss them in the last section.
+                        </p>
+                    </section>
+                    <section class="section overview" id="overview">
+                        <h3 class="header--overview">overview</h3>
+                        <p>
+                            This application utilizes the classic single-layer
+                            client-server architecture.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/cs-architecutre.webp"
+                            alt="an illustration of the client-server architecture"
+                            class="img--half"
+                        />
+                        <p>
+                            Each client is connected to the same TCP port on the
+                            server, and they can exchange datagram over this
+                            connection. Since this was an experimental project
+                            to learn the basic principles, I did not implement
+                            datagram replay (i.e. C2C communication is not
+                            supported). This application supports the following
+                            key functionalities:
+                        </p>
+                        <ul>
+                            <li>
+                                TCP connection: each client establishes a TCP
+                                connection with the server.
+                            </li>
+                            <li>
+                                Username: the client can choose a username
+                                before connecting to the server.
+                            </li>
+                            <li>
+                                Messaging: each client can message with the
+                                server privately.
+                            </li>
+                            <li>
+                                File transfer: each client can transfer (small)
+                                files with the server privately.
+                            </li>
+                            <li>
+                                Typing status: when the client is typing, the
+                                server sees a typing indication. Similarly, when
+                                the server is typing, the client sees a typing
+                                indication.
+                            </li>
+                            <li>
+                                Availability: the client can choose between
+                                three different availability statuses: available
+                                (green), busy (yellow), and away (red). When the
+                                client disconnects, the availability status
+                                becomes disconnected (gray). This status can be
+                                seen on the server side.
+                            </li>
+                        </ul>
+                        <p>
+                            The following screenshot shows a client and the
+                            server side-by-side.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/overview.png"
+                            alt="a client application and the server application side by side"
+                        />
+                        <p>
+                            Please note: in this project, I focused on
+                            implementation instead of UI design.
+                        </p>
+                    </section>
+                    <section class="section technical" id="technical">
+                        <h3 class="header--technical">details</h3>
+                        <p>
+                            The UML diagram below shows the structural design of
+                            the application. Note that fields and methods
+                            related to UI elements (buttons, frames, etc.) are
+                            not shown.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/lan-connect.webp"
+                            alt="a UML diagram for the LAN connect application"
+                        />
+                        <p>
+                            The whole application follows the client-server
+                            architecture. From the above UML diagram, one can
+                            also see that for the client and server alone, I
+                            used a layered architecture. This is illustrated in
+                            the image below.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/layered-lan-connect.webp"
+                            alt="the layered architecture of the lan-connect project"
+                        />
+                        <p>
+                            The Client class is responsible for the UI (the
+                            view), and the Client Manager class is responsible
+                            for the logic (the control). The Protocol class is
+                            responsible for packing and unpacking all kinds of
+                            messages according to the protocol.
+                        </p>
+                        <p>
+                            The structure is a bit more complicated for the
+                            server. The Server class is responsible for the UI
+                            (the view). On the server UI, there is a tab for
+                            each connected client. This tab has its own UI,
+                            which is what the Chat Widget class is responsible
+                            for. To implement the logic (the control) of the
+                            server UI, there is the Server Manager class. Since
+                            each chat tab with a client is structurally
+                            symmetric to the client, the Chat Widget class also
+                            uses the Client Manager class for control
+                            implementation. Finally, there is the same protocol
+                            instance on the server side.
+                        </p>
+                        <p>
+                            The following sequence diagram illustrates the
+                            (simplified) connection procedure.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/client-connection.webp"
+                            alt="a sequence diagram illustrating the connection procedure of the client to the server"
+                            class="img--half"
+                        />
+                        <p>
+                            These are the initial connection steps in greater
+                            details:
+                        </p>
+                        <ol>
+                            <li>
+                                Server initiates. Server manager and protocol
+                                are instantiated.
+                            </li>
+                            <li>
+                                Client initiates. Client manager and protocol
+                                are instantiated.
+                            </li>
+                            <li>
+                                Server sets its IP address and TCP port, and it
+                                starts listening.
+                            </li>
+                            <li>
+                                Client chooses an IP address and TCP port and
+                                sends a connection request (through TCP protocol
+                                of course, not through our own protocol).
+                            </li>
+                            <li>
+                                If the IP address and TCP port are correct, and
+                                the server is currently listening, connection is
+                                established. In any other case, the connection
+                                attempt will fail. If connection is established,
+                                the client will receive a confirmation.
+                            </li>
+                            <li>
+                                The client manager sends the username and status
+                                (initially available) to the server through our
+                                own protocol.
+                            </li>
+                            <li>
+                                The TCP socket with the connected client is
+                                added to the clients list, maintained by the
+                                server manager.
+                            </li>
+                            <li>
+                                An ID is allocated for the client, and the
+                                client shows up on the list on the server UI.
+                            </li>
+                            <li>
+                                A client manager is instantiated by the server
+                                manager.
+                            </li>
+                            <li>
+                                A chat widget is created by the server UI, and
+                                the client manager is connected to the chat
+                                widget.
+                            </li>
+                        </ol>
+                        <p>
+                            Messaging between the client and the server is
+                            handled by the protocol instances. The image below
+                            illustrates the process.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/protocol-structure.webp"
+                            alt="the process in which a message is packed, transported, and unpacked by the protocol instances"
+                            class="img--half"
+                        />
+                        <p>
+                            Of course, the protocol instance is responsible for
+                            all communications between the client and the
+                            server, not just text messages. It works
+                            symmetrically for server messaging the client.
+                        </p>
+                        <p>
+                            Because this is not a complicated application, the
+                            protocol is simple. For each type of message (text
+                            message, username, availability status, isTyping,
+                            file request, file accpetance, file rejection),
+                            there is a corresponding code, and this
+                            corresponding code is appended to the beginning of
+                            the message. For file request message, in addition
+                            to the code, file name and file size are also
+                            appended as part of the protocol.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/protocol-sequence.webp"
+                            alt="sequence diagram for protocol processing"
+                        />
+                        <p>
+                            I didn&apos;t implement more advanced
+                            functionalities such as file segmentation.
+                            Therefore, file transfer happens in exactly one TCP
+                            datagram. Obviously, the consequence of this is that
+                            file size is capped at approximately 56KB.
+                        </p>
+                        <p>
+                            The manner in which a file is transferred is similar
+                            to other types of messages. The only difference is
+                            that the receiver (i.e. the server) has the option
+                            to accept or reject a file. The following sequence
+                            diagram illustrates this process.
+                        </p>
+                        <img
+                            src="../img/projects/lan-connect/file-sequence.webp"
+                            alt="sequence diagram for file transfer"
+                            class="img--half"
+                        />
+                        <p>The next section shows some demonstrations.</p>
+                    </section>
+                    <section class="section features" id="features">
+                        <h3 class="header--features">key features</h3>
+                        <p>
+                            Below are some key features I have implemented for
+                            this application, along with some video
+                            demonstrations.
+                        </p>
+                        <ul>
+                            <li>
+                                Start a server and listen at a TCP port. Connect
+                                a client to the server while setting a username.
+                            </li>
+                            <li style="list-style: none">
+                                <video controls style="width: 100%">
+                                    <source
+                                        src="../img/projects/lan-connect/demo1.webm"
+                                        type="video/webm"
+                                    />
+                                    It seems your browser does not support
+                                    embedded videos, please try another browser
+                                    such as Google Chrome.
+                                </video>
+                            </li>
+                            <li>Messaging between client and server.</li>
+                            <li>
+                                Typing status indicator (client sees an
+                                indication when server is typing, and vice
+                                versa).
+                            </li>
+                            <li>Availability status.</li>
+                            <li style="list-style: none">
+                                <video controls style="width: 100%">
+                                    <source
+                                        src="../img/projects/lan-connect/demo2.webm"
+                                        type="video/webm"
+                                    />
+                                    It seems your browser does not support
+                                    embedded videos, please try another browser
+                                    such as Google Chrome.
+                                </video>
+                            </li>
+                            <li>File transfer from client to server.</li>
+                            <li style="list-style: none">
+                                <video controls style="width: 100%">
+                                    <source
+                                        src="../img/projects/lan-connect/demo3.webm"
+                                        type="video/webm"
+                                    />
+                                    It seems your browser does not support
+                                    embedded videos, please try another browser
+                                    such as Google Chrome.
+                                </video>
+                            </li>
+                            <li>
+                                Connecting multiple clients at the same time.
+                            </li>
+                            <li style="list-style: none">
+                                <video controls style="width: 100%">
+                                    <source
+                                        src="../img/projects/lan-connect/demo4.webm"
+                                        type="video/webm"
+                                    />
+                                    It seems your browser does not support
+                                    embedded videos, please try another browser
+                                    such as Google Chrome.
+                                </video>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="section extension" id="extension">
+                        <h3 class="header--extension">possible extensions</h3>
+                        <p>Some extensions I'm considering implementing:</p>
+                        <ol class="more">
+                            <li>
+                                Server-side authentication: this involves a
+                                database (Sqlite) integration on the server
+                                side. Also, this requires an extension on the
+                                current protocol.
+                            </li>
+                            <li>
+                                C2C communication: this requires a significant
+                                upgrade on the entire application.
+                                <ul>
+                                    <li>
+                                        Every time a client connects to or
+                                        disconnects from the server, the server
+                                        needs to broadcast this changed to all
+                                        the connected clients.
+                                    </li>
+                                    <li>
+                                        The protocol needs to support a new
+                                        message type: a private message with a
+                                        designated client receiver.
+                                    </li>
+                                    <li>
+                                        The server needs to support message
+                                        relay.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Based on the previous extension, the receiver
+                                client should be able to decline the message
+                                from the sender client.
+                            </li>
+                            <li>
+                                Two more advanced features: chatrooms and file
+                                segmentation (for transferring large files).
+                            </li>
+                        </ol>
+                    </section>
+                </main>
+                <aside class="footer">
+                    <span class="copyright"
+                        >&copy; 2024 Yinfeng Lu. All rights reserved.</span
+                    >
+                </aside>
+            </div>
+        </div>
+    </body>
+</html>
