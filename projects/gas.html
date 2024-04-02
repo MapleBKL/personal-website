@@ -753,8 +753,23 @@
                                 </p>
                             </li>
                             <li>
-                                Incorporate Elastic Load Balancer (AWS ELB) to
-                                enable automatic horizontal scaling.
+                                <p>
+                                    Incorporate Elastic Load Balancer (AWS ELB)
+                                    to enable automatic horizontal scaling.
+                                </p>
+                                <p>
+                                    This project has one final issue: it is not
+                                    scaling horizontally. Suppose this project
+                                    is getting more and more popular, the single
+                                    frontend server and annotator server would
+                                    not be enough to handle the workload.
+                                    Therefore, we need a way to increase the
+                                    number of nodes in our system as the
+                                    requests grow (and decrease as the requests
+                                    shrink). This is not particularly difficult
+                                    to achieve with AWS ELB. It works as
+                                    illustrated below.
+                                </p>
                             </li>
                         </ol>
                     </section>
