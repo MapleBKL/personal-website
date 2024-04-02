@@ -7,6 +7,7 @@ const demoLink = document.querySelector(".demo-link");
 const sectionFeatures = document.querySelector("#features");
 
 const logo = document.querySelector(".logo-refresh");
+const btnMobileNav = document.querySelector(".btn-mobile");
 
 logo.addEventListener("click", function (e) {
     e.preventDefault();
@@ -48,4 +49,8 @@ backToTop.addEventListener("click", function (e) {
 demoLink?.addEventListener("click", function (e) {
     e.preventDefault();
     sectionFeatures.scrollIntoView({ behavior: "smooth" });
+});
+
+btnMobileNav.addEventListener("click", function () {
+    pageTop.classList.toggle("nav-open");
 });
