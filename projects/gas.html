@@ -43,6 +43,11 @@
                             <a href="#features" class="nav-link">features</a>
                         </li>
                         <li>
+                            <a href="#lessons" class="nav-link"
+                                >lessons learned</a
+                            >
+                        </li>
+                        <li>
                             <a href="#extension" class="nav-link"
                                 >possible extensions</a
                             >
@@ -56,25 +61,40 @@
                     <div class="header-main">
                         <div class="header-img-container">
                             <img
-                                src="../img/projects/lan-connect/cover.jpg"
-                                alt="screenshot of the LAN connect application, two clients communicating with the server"
+                                src="../img/projects/gas/cover.webp"
+                                alt="a system architecture diagram for the genomics annotation service application"
                                 class="header-img-img"
                             />
-                            <h2 class="header-img-text">LAN Connect</h2>
+                            <h2 class="header-img-text">
+                                Genomics Annotation Service
+                            </h2>
                         </div>
                         <div class="header-secondary">
                             <div class="tags">
                                 <div class="tag-group">
                                     <p>Languages</p>
                                     <div>
-                                        <span class="tag tag--lang">C++</span>
+                                        <span class="tag tag--lang"
+                                            >Python</span
+                                        >
+                                        <span class="tag tag--lang">HTML</span>
+                                        <span class="tag tag--lang">CSS</span>
+                                        <span class="tag tag--lang"
+                                            >JavaScript</span
+                                        >
                                     </div>
                                 </div>
                                 <div class="tag-group">
                                     <p>Libraries &amp; Frameworks</p>
                                     <div>
                                         <span class="tag tag--framework"
-                                            >Qt</span
+                                            >Flask</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Boto3</span
+                                        >
+                                        <span class="tag tag--framework"
+                                            >Jinja</span
                                         >
                                     </div>
                                 </div>
@@ -82,13 +102,16 @@
                                     <p>Topics</p>
                                     <div>
                                         <span class="tag tag--general"
-                                            >OO Architecture</span
+                                            >AWS</span
                                         >
                                         <span class="tag tag--general"
-                                            >Network Programming</span
+                                            >Backend</span
                                         >
                                         <span class="tag tag--general"
-                                            >Desktop Application</span
+                                            >Cloud Computing</span
+                                        >
+                                        <span class="tag tag--general"
+                                            >Web Development</span
                                         >
                                     </div>
                                 </div>
@@ -97,376 +120,641 @@
                                 <button class="btn btn-disable">
                                     View Live
                                 </button>
-                                <a
-                                    href="https://github.com/MapleBKL/LAN_message_and_file_transfer"
-                                    class="source-link source-link-enable"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    View Source
-                                </a>
+                                <button class="btn btn-enable">
+                                    Request Source
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div class="explanation">
                         <p>
-                            Why can&apos;t I view it live? &mdash; This is not a
-                            web application.
+                            Why can&apos;t I view it live? &mdash; Per
+                            university policies, this project cannot be made
+                            public.
+                        </p>
+                        <p>
+                            Why can&apos;t I view the source code directly?
+                            &mdash; Per university policies, the source code of
+                            this project cannot be made publicly available.
+                            However, feel free to send me a request, and
+                            I&apos;ll happily share it with you for private
+                            scrutiny!
                         </p>
                     </div>
-                    <a href="#features" class="demo-link"
-                        >Watch short demos below &darr;</a
-                    >
                 </header>
                 <main class="main-content">
                     <section class="section introduction" id="introduction">
                         <h3 class="header--intro">introduction</h3>
                         <p>
-                            LAN Connect is a practice project I wrote from
-                            scratch after I learned the basics of the Qt
-                            framework and network (socket) programming. I found
-                            it fascinating that two machines on the same local
-                            area network can easily communicate with each other
-                            using the socket API provided by the transport
-                            layer, so I couldn&apos;t wait to write my own local
-                            area network communication application after
-                            learning the principles. This project was quite a
-                            challenge to me back then, but looking at it now, I
-                            feel a lot can be improved or extended. I will
-                            discuss them in the last section.
+                            Genomics annotation service (GAS) was my capstone
+                            project for my cloud computing class at UChicago. As
+                            the product of ten weeks of dedicated work, this
+                            project exhibits both a large scale and a
+                            sophisticated design. Since it was a cloud computing
+                            class, UI design was not the focus, and thus a
+                            frontend implementation was provided. I implemented
+                            almost all the cloud-related backend
+                            functionalities. Although I wish I could present you
+                            with a live version, per university policies, I am
+                            unfortunately unable to make any part of this
+                            project public (except for writing about its design
+                            and implementation, of course). That being said, I
+                            am allowed to share the source code for private
+                            scrutiny. If you are interested in looking at the
+                            source code, please contact me.
                         </p>
                     </section>
                     <section class="section overview" id="overview">
                         <h3 class="header--overview">overview</h3>
                         <p>
-                            This application utilizes the classic single-layer
-                            client-server architecture.
-                        </p>
-                        <img
-                            src="../img/projects/lan-connect/cs-architecutre.webp"
-                            alt="an illustration of the client-server architecture"
-                            class="img--half"
-                        />
-                        <p>
-                            Each client is connected to the same TCP port on the
-                            server, and they can exchange datagram over this
-                            connection. Since this was an experimental project
-                            to learn the basic principles, I did not implement
-                            datagram replay (i.e. C2C communication is not
-                            supported). This application supports the following
-                            key functionalities:
+                            GAS is a distributed Software as a Service (Saas)
+                            application deployed on Amazon Web Services (AWS).
+                            It consists of three independent servers (AWS EC2
+                            instances):
                         </p>
                         <ul>
                             <li>
-                                TCP connection: each client establishes a TCP
-                                connection with the server.
+                                A frontend server: hosting the frontend user
+                                interfaces. When a user visits GAS, all the
+                                pages they see are dynamically generated by this
+                                server.
                             </li>
                             <li>
-                                Username: the client can choose a username
-                                before connecting to the server.
+                                An annotator server: a backend server providing
+                                the core business functionality - genomics
+                                annotation. All users&apos; job requests are
+                                processed by this server.
                             </li>
                             <li>
-                                Messaging: each client can message with the
-                                server privately.
-                            </li>
-                            <li>
-                                File transfer: each client can transfer (small)
-                                files with the server privately.
-                            </li>
-                            <li>
-                                Typing status: when the client is typing, the
-                                server sees a typing indication. Similarly, when
-                                the server is typing, the client sees a typing
-                                indication.
-                            </li>
-                            <li>
-                                Availability: the client can choose between
-                                three different availability statuses: available
-                                (green), busy (yellow), and away (red). When the
-                                client disconnects, the availability status
-                                becomes disconnected (gray). This status can be
-                                seen on the server side.
+                                A utility server: a backend server providing
+                                various supporting functionalities, including
+                                email notifications, file archiving, file
+                                thawing, and file restoration.
                             </li>
                         </ul>
                         <p>
-                            The following screenshot shows a client and the
-                            server side-by-side.
+                            Besides these servers that run on AWS EC2 instances
+                            (t4g.nano, since this project is for educational
+                            purpose), the following additional AWS services are
+                            also used:
+                        </p>
+                        <ul>
+                            <li>
+                                S3 for persistent storage of the users&apos;
+                                files.
+                            </li>
+                            <li>
+                                DynamoDB for KV storage related to users&apos;
+                                job requests.
+                            </li>
+                            <li>
+                                Simple Notification Service (SNS) and Simple
+                                Queue Service (SQS) for inter-server
+                                communications (following the publish-subscribe
+                                design pattern).
+                            </li>
+                            <li>
+                                Simple Email Service (SES) for email
+                                notifications.
+                            </li>
+                            <li>Step Function for scalable waiting.</li>
+                            <li>S3 Glacier for file archiving.</li>
+                            <li>Lambda function for file restoration.</li>
+                        </ul>
+                        <p>
+                            The following diagram shows the architecture of this
+                            project.
                         </p>
                         <img
-                            src="../img/projects/lan-connect/overview.png"
-                            alt="a client application and the server application side by side"
+                            src="../img/projects/gas/cover.webp"
+                            alt="a system architecture diagram for the genomics annotation service application"
                         />
                         <p>
-                            Please note: in this project, I focused on
-                            implementation instead of UI design.
+                            This project uses Python with the Flask micro web
+                            framework. Pages are dynamically generated with
+                            Jinja. CSS and JavaScript are also occasionally used
+                            to implement some frontend functionalities.
+                            Interactions with AWS are achieved using the Boto3
+                            library.
                         </p>
                     </section>
                     <section class="section technical" id="technical">
                         <h3 class="header--technical">details</h3>
                         <p>
-                            The UML diagram below shows the structural design of
-                            the application. Note that fields and methods
-                            related to UI elements (buttons, frames, etc.) are
-                            not shown.
+                            User authentication is done via Globus Auth (a
+                            federated identity management solution), and it is
+                            one of the few backend functionalities that I did
+                            not need to implement myself. The following
+                            discussions are based on the assumption that a user
+                            is logged in.
+                        </p>
+                        <h4>Submit job requests</h4>
+                        <p>
+                            Users can submit job requests by visiting the
+                            &quot;/annotate&quot; endpoint on the frontend
+                            server (which is a Flask application). When an
+                            authenticated user visits this endpoint, a
+                            pre-signed S3 POST request is generated and included
+                            in the dynamically generated upload form. This
+                            pre-signed S3 POST request gives the user 60 seconds
+                            of write access to our S3 bucket, so that the user
+                            can directly upload their input file to our S3
+                            bucket, instead of relying on our web server to
+                            relay the file. This approach significantly reduces
+                            the workload on the web server, hence ensuring its
+                            scalability.
+                        </p>
+                        <p>
+                            Once the user&apos;s input file is uploaded to S3
+                            successfully, the frontend server is redirected to
+                            the &quot;/annotate/job&quot; endpoint (this
+                            redirection is handled by S3), where relevant
+                            information (e.g. user ID, S3 input bucket key, user
+                            input file key, etc.) is passed in as arguments to
+                            the GET request. This endpoint extracts all the
+                            relevant information from the url arguments and
+                            creates a corresponding JavaScript object containing
+                            all the information. It then publishes this
+                            JavaScript object to the job requests topic on SNS,
+                            which is then pushed to a message queue on SQS that
+                            subscribes to this topic (the annotator is
+                            monitoring this message queue, more on this later).
+                            After the above steps, this endpoint creates a new
+                            entry for this job request in DynamoDB. This
+                            persistent KVS is how job information is shared
+                            between different servers. Finally, this endpoint
+                            renders a dynamic page showing a confirmation
+                            message with a link to the job detail page (more on
+                            this later).
+                        </p>
+                        <p>
+                            Note, in the above description, how the frontend
+                            server posts a job request to the annotator server.
+                            This process is illustrated in the image below.
                         </p>
                         <img
-                            src="../img/projects/lan-connect/lan-connect.webp"
-                            alt="a UML diagram for the LAN connect application"
+                            src="../img/projects/gas/message-queue.webp"
+                            alt="a message queue between two servers"
                         />
                         <p>
-                            The whole application follows the client-server
-                            architecture. From the above UML diagram, one can
-                            also see that for the client and server alone, I
-                            used a layered architecture. This is illustrated in
-                            the image below.
+                            This follows a design pattern called the
+                            &quot;publish-subscribe pattern&quot; (a form of the
+                            observer pattern). This is a very important step
+                            because using the publish-subscribe pattern for
+                            implementing inter-server communications decouples
+                            the servers, enabling the servers to be more
+                            independent and transparent, and thus easier to
+                            maintain. Moreover, the publish-subscribe pattern
+                            also facilitates scalability and asynchronous
+                            communication. The operation of one server does not
+                            depend on the response of the other server.
                         </p>
-                        <img
-                            src="../img/projects/lan-connect/layered-lan-connect.webp"
-                            alt="the layered architecture of the lan-connect project"
-                        />
+                        <h4>Process job requests</h4>
                         <p>
-                            The Client class is responsible for the UI (the
-                            view), and the Client Manager class is responsible
-                            for the logic (the control). The Protocol class is
-                            responsible for packing and unpacking all kinds of
-                            messages according to the protocol.
-                        </p>
-                        <p>
-                            The structure is a bit more complicated for the
-                            server. The Server class is responsible for the UI
-                            (the view). On the server UI, there is a tab for
-                            each connected client. This tab has its own UI,
-                            which is what the Chat Widget class is responsible
-                            for. To implement the logic (the control) of the
-                            server UI, there is the Server Manager class. Since
-                            each chat tab with a client is structurally
-                            symmetric to the client, the Chat Widget class also
-                            uses the Client Manager class for control
-                            implementation. Finally, there is the same protocol
-                            instance on the server side.
+                            The annotator server runs on a separate EC2
+                            instance, but it per se is not a Flask application
+                            (more on this in the possible extensions section).
+                            Instead, the annotator server runs a Python script
+                            that is constantly performing long-polling on the
+                            job requests message queue. Each long-polling
+                            request lasts for 20 seconds and has a maximum
+                            capacity of 10 messages.
                         </p>
                         <p>
-                            The following sequence diagram illustrates the
-                            (simplified) connection procedure.
+                            Long-polling ensures we have real-time updates (i.e.
+                            when a job request is posted by the frontend server,
+                            we can receive it with almost no delay), and in
+                            addition, it does not pose a huge server load and
+                            make the operation inefficient.
                         </p>
-                        <img
-                            src="../img/projects/lan-connect/client-connection.webp"
-                            alt="a sequence diagram illustrating the connection procedure of the client to the server"
-                            class="img--half"
-                        />
                         <p>
-                            These are the initial connection steps in greater
-                            details:
+                            Once the annotator server polls a new job request
+                            from the message queue, it extracts the detailed job
+                            information from the body of the message. According
+                            to the job information (specifically, user ID, S3
+                            input bucket key, and input file key), the annotator
+                            server downloads the user&apos;s input file from the
+                            S3 bucket. A Python subprocess is then invoked by
+                            the annotator server, which runs a script to perform
+                            a genomics annotation on the input file.
+                        </p>
+                        <p>
+                            As soon as the subprocess is invoked, the job
+                            request message is deleted from the message queue
+                            (by the annotator server). In addition, the
+                            annotator server queries DynamoDB for the entry
+                            corresponding to this job request and updates its
+                            status (an attribute) from PENDING to RUNNING.
+                        </p>
+                        <p>
+                            Once the subprocess finishes annotating the input
+                            file, it performs several follow-up operations.
+                            Here, I only describe two of them. The remaining
+                            operations will be introduced in the subsequent
+                            subsections.
                         </p>
                         <ol>
                             <li>
-                                Server initiates. Server manager and protocol
-                                are instantiated.
+                                It uploads the results file and the log file to
+                                the S3 result bucket (a different bucket from
+                                the input bucket), and it then cleans up local
+                                storage.
                             </li>
                             <li>
-                                Client initiates. Client manager and protocol
-                                are instantiated.
-                            </li>
-                            <li>
-                                Server sets its IP address and TCP port, and it
-                                starts listening.
-                            </li>
-                            <li>
-                                Client chooses an IP address and TCP port and
-                                sends a connection request (through TCP protocol
-                                of course, not through our own protocol).
-                            </li>
-                            <li>
-                                If the IP address and TCP port are correct, and
-                                the server is currently listening, connection is
-                                established. In any other case, the connection
-                                attempt will fail. If connection is established,
-                                the client will receive a confirmation.
-                            </li>
-                            <li>
-                                The client manager sends the username and status
-                                (initially available) to the server through our
-                                own protocol.
-                            </li>
-                            <li>
-                                The TCP socket with the connected client is
-                                added to the clients list, maintained by the
-                                server manager.
-                            </li>
-                            <li>
-                                An ID is allocated for the client, and the
-                                client shows up on the list on the server UI.
-                            </li>
-                            <li>
-                                A client manager is instantiated by the server
-                                manager.
-                            </li>
-                            <li>
-                                A chat widget is created by the server UI, and
-                                the client manager is connected to the chat
-                                widget.
+                                It queries DynamoDB for the entry corresponding
+                                to this job request and updates several
+                                attributes: it adds the finish timestamp, the
+                                result bucket key, the results file key, and the
+                                log file key to the entry, and it also updates
+                                the job status from RUNNING to COMPLETED.
                             </li>
                         </ol>
                         <p>
-                            Messaging between the client and the server is
-                            handled by the protocol instances. The image below
-                            illustrates the process.
+                            Note that the annotator server does not directly
+                            tell the frontend server that the job request has
+                            been processed, as this would introduce some level
+                            of coupling between the two servers. Instead, the
+                            annotator server updates the job status on DynamoDB,
+                            and the frontend server can query for the job status
+                            to check if a job request has been fulfilled or not.
                         </p>
-                        <img
-                            src="../img/projects/lan-connect/protocol-structure.webp"
-                            alt="the process in which a message is packed, transported, and unpacked by the protocol instances"
-                            class="img--half"
-                        />
+                        <h4>View and download result files</h4>
                         <p>
-                            Of course, the protocol instance is responsible for
-                            all communications between the client and the
-                            server, not just text messages. It works
-                            symmetrically for server messaging the client.
+                            Recall that when a job request is published to the
+                            job requests SNS topic, the user receives a link in
+                            the dynamically generated confirmation page. This
+                            link leads to another endpoint in the frontend Flask
+                            application:
+                            &quot;/annotations/&lt;job_id&gt;&quot;. Every time
+                            a user visits this endpoint, the frontend server
+                            first queries DynamoDB for the job ID (which is
+                            obtained from the endpoint url). In either of the
+                            following cases:
                         </p>
-                        <p>
-                            Because this is not a complicated application, the
-                            protocol is simple. For each type of message (text
-                            message, username, availability status, isTyping,
-                            file request, file accpetance, file rejection),
-                            there is a corresponding code, and this
-                            corresponding code is appended to the beginning of
-                            the message. For file request message, in addition
-                            to the code, file name and file size are also
-                            appended as part of the protocol.
-                        </p>
-                        <img
-                            src="../img/projects/lan-connect/protocol-sequence.webp"
-                            alt="sequence diagram for protocol processing"
-                        />
-                        <p>
-                            I didn&apos;t implement more advanced
-                            functionalities such as file segmentation.
-                            Therefore, file transfer happens in exactly one TCP
-                            datagram. Obviously, the consequence of this is that
-                            file size is capped at approximately 56KB.
-                        </p>
-                        <p>
-                            The manner in which a file is transferred is similar
-                            to other types of messages. The only difference is
-                            that the receiver (i.e. the server) has the option
-                            to accept or reject a file. The following sequence
-                            diagram illustrates this process.
-                        </p>
-                        <img
-                            src="../img/projects/lan-connect/file-sequence.webp"
-                            alt="sequence diagram for file transfer"
-                            class="img--half"
-                        />
-                        <p>The next section shows some demonstrations.</p>
-                    </section>
-                    <section class="section features" id="features">
-                        <h3 class="header--features">key features</h3>
-                        <p>
-                            Below are some key features I have implemented for
-                            this application, along with some video
-                            demonstrations.
-                        </p>
-                        <ul>
+                        <ol>
+                            <li>The job ID does not exist,</li>
                             <li>
-                                Start a server and listen at a TCP port. Connect
-                                a client to the server while setting a username.
+                                The job ID exists, but it does not belong to the
+                                current user,
                             </li>
-                            <li style="list-style: none">
-                                <video controls style="width: 100%">
-                                    <source
-                                        src="../img/projects/lan-connect/demo1.webm"
-                                        type="video/webm"
-                                    />
-                                    It seems your browser does not support
-                                    embedded videos, please try another browser
-                                    such as Google Chrome.
-                                </video>
-                            </li>
-                            <li>Messaging between client and server.</li>
+                        </ol>
+                        <p>
+                            a 404 page is rendered. Otherwise, the frontend
+                            server parses the DynamoDB response and dynamically
+                            renders a page for the user that presents the
+                            following information:
+                        </p>
+                        <ol>
                             <li>
-                                Typing status indicator (client sees an
-                                indication when server is typing, and vice
-                                versa).
-                            </li>
-                            <li>Availability status.</li>
-                            <li style="list-style: none">
-                                <video controls style="width: 100%">
-                                    <source
-                                        src="../img/projects/lan-connect/demo2.webm"
-                                        type="video/webm"
-                                    />
-                                    It seems your browser does not support
-                                    embedded videos, please try another browser
-                                    such as Google Chrome.
-                                </video>
-                            </li>
-                            <li>File transfer from client to server.</li>
-                            <li style="list-style: none">
-                                <video controls style="width: 100%">
-                                    <source
-                                        src="../img/projects/lan-connect/demo3.webm"
-                                        type="video/webm"
-                                    />
-                                    It seems your browser does not support
-                                    embedded videos, please try another browser
-                                    such as Google Chrome.
-                                </video>
+                                If the job status is PENDING or RUNNING:
+                                <ul>
+                                    <li>Job ID</li>
+                                    <li>
+                                        Input file name and input file download
+                                        link
+                                    </li>
+                                    <li>Submission timestamp</li>
+                                    <li>Job status</li>
+                                </ul>
                             </li>
                             <li>
-                                Connecting multiple clients at the same time.
-                            </li>
-                            <li style="list-style: none">
-                                <video controls style="width: 100%">
-                                    <source
-                                        src="../img/projects/lan-connect/demo4.webm"
-                                        type="video/webm"
-                                    />
-                                    It seems your browser does not support
-                                    embedded videos, please try another browser
-                                    such as Google Chrome.
-                                </video>
-                            </li>
-                        </ul>
-                    </section>
-                    <section class="section extension" id="extension">
-                        <h3 class="header--extension">possible extensions</h3>
-                        <p>Some extensions I'm considering implementing:</p>
-                        <ol class="more">
-                            <li>
-                                Server-side authentication: this involves a
-                                database (Sqlite) integration on the server
-                                side. Also, this requires an extension on the
-                                current protocol.
+                                If the job status is COMPLETED, then in
+                                addition:
+                                <ul>
+                                    <li>Completion timestamp</li>
+                                    <li>Results file download link</li>
+                                    <li>Log file view link</li>
+                                </ul>
                             </li>
                             <li>
-                                C2C communication: this requires a significant
-                                upgrade on the entire application.
+                                If the job status is ARCHIVED (more on this
+                                later), then:
                                 <ul>
                                     <li>
-                                        Every time a client connects to or
-                                        disconnects from the server, the server
-                                        needs to broadcast this changed to all
-                                        the connected clients.
-                                    </li>
-                                    <li>
-                                        The protocol needs to support a new
-                                        message type: a private message with a
-                                        designated client receiver.
-                                    </li>
-                                    <li>
-                                        The server needs to support message
-                                        relay.
+                                        Results file download link is replaced
+                                        with a link to the subscribe page.
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                Based on the previous extension, the receiver
-                                client should be able to decline the message
-                                from the sender client.
+                                If the job status is RESTORING (more on this
+                                later), then:
+                                <ul>
+                                    <li>
+                                        Results file download link is replaced
+                                        with a message asking the user to come
+                                        back later
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p>
+                            The input file and results file download links are
+                            again pre-signed S3 requests (GET request instead of
+                            POST request), and the log file view link is a link
+                            to yet another endpoint of the frontend web server.
+                        </p>
+                        <p>
+                            When the user visits the job detail page, the
+                            pre-signed S3 GET requests are generated and valid
+                            for 60 seconds. It is standard to make the
+                            pre-signed requests valid for as short as possible,
+                            for security reasons. The log file view link takes
+                            the user to the
+                            &quot;/annotations/&lt;job_id&gt;/log&quot;
+                            endpoint, in which the log file content is
+                            downloaded as a byte stream from S3 and presented to
+                            the user.
+                        </p>
+                        <p>
+                            The user can also see a whole list of all the job
+                            requests they have submitted. If the user goes to
+                            the &quot;/annotations&quot; endpoint on the
+                            frontend web server, the endpoint queries DynamoDB
+                            for all the job entries with user ID (which is the
+                            primary index key on DynamoDB) matching the current
+                            user. There is initially an empty table in the HTML
+                            template for this endpoint, and for each job entry
+                            in the response of DynamoDB, a table row is inserted
+                            into the table. Finally, the HTML is dynamically
+                            rendered for the user. There is also some CSS
+                            involved in styling the table.
+                        </p>
+                        <p>
+                            There is more involved in this phase, but I will
+                            postpone the discussion to later subsections.
+                        </p>
+                        <h4>Email notifications</h4>
+                        <p>
+                            When the subprocess in the annotator server finishes
+                            annotating an input file, it also publishes a
+                            message to another SNS topic. This message simply
+                            contains the user ID, the job ID, and the completion
+                            timestamp, and it is polled from the corresponding
+                            message queue on SQS by the Notify script running on
+                            the utility server. This process is exactly the same
+                            as the publish-subscribe pattern I discussed above.
+                        </p>
+                        <p>
+                            Once the Notify script polls the message and parses
+                            it, it constructs an email including the job ID, the
+                            completion timestamp, and a link to the job detail
+                            page. It then queries for the user&apos;s registered
+                            email address from the credential database, and it
+                            sends the email to the user via Simple Email Service
+                            (SES) on AWS.
+                        </p>
+                        <h4>Archive, thaw, and restore</h4>
+                        <p>
+                            To reduce storage cost, free users don&apos;t always
+                            get to access their results files (see the next
+                            subsection on tiered user access). Instead, their
+                            results files are archived after a certain period of
+                            time. Archived files are stored in S3 Glacier, which
+                            offers lower storage cost, but files cannot be
+                            easily retrieved from it.
+                        </p>
+                        <p>
+                            When the subprocess in the annotator server finishes
+                            annotating an input file, one last operation is
+                            performed (I have already described three other
+                            operations!). On AWS Step Functions, I deployed a
+                            simple step function as illustrated below.
+                        </p>
+                        <img
+                            src="../img/projects/gas/step-function.webp"
+                            alt="illustration of an AWS step function that waits five minutes before relaying a message"
+                            class="img--half"
+                        />
+                        <p>
+                            Once the annotation finishes, the subprocess sends a
+                            message to the step function to trigger it. The
+                            message contains in its body relevant information
+                            about the finished annotation job. This step
+                            function simply waits for five minutes, after which
+                            it relays the message to a message queue on SQS for
+                            archive requests.
+                        </p>
+                        <p>
+                            Why the need for a step function that does nothing
+                            but waits? Scalability! Imagine in a real production
+                            service, free users get up to a week to download
+                            their results files before they are archived. It is
+                            certainly impractical to make the subprocess wait
+                            for a week before it sends the message and
+                            terminates. Therefore, to ensure the scalability of
+                            our application, it is a better choice to delegate
+                            the waiting process to an AWS step function, so that
+                            the subprocess can terminate as soon as the
+                            annotation finishes.
+                        </p>
+                        <p>
+                            On the utility server, there is an Archive script
+                            that is constantly long-polling the archive requests
+                            message queue on SQS. Once it polls an archive
+                            request, it performs the following operations. It
+                            first queries the credential database to check if
+                            the user ID for this request belongs to a free user
+                            or a premium user. If it belongs to a premium user,
+                            no further action is taken, and the message is
+                            deleted from the message queue. If it belongs to a
+                            free user, then:
+                        </p>
+                        <ol>
+                            <li>
+                                Results file corresponding to this request is
+                                downloaded as a byte stream from the S3 results
+                                bucket and simultaneously uploaded to S3
+                                Glacier. This ensures the file is relayed by
+                                memory instead of disk.
                             </li>
                             <li>
-                                Two more advanced features: chatrooms and file
-                                segmentation (for transferring large files).
+                                Job entry in DynamoDB is queried and job status
+                                is updated from COMPLETED to ARCHIVED.
+                            </li>
+                            <li>Message is deleted from the message queue.</li>
+                        </ol>
+                        <p>
+                            Of course, if a free user decides to upgrade to the
+                            premium status, their results files should be
+                            restored from S3 Glacier back to the S3 results
+                            bucket.
+                        </p>
+                        <p>
+                            After a user has successfully subscribed to premium,
+                            a message is published by the frontend web server to
+                            yet another SNS topic. This message is then sent to
+                            the corresponding message queue on SQS and polled by
+                            the Thaw script on the utility server. The script
+                            retrieves all the archived jobs belonging to this
+                            user from DynamoDB, and it initiates a restoration
+                            process for each of them.
+                        </p>
+                        <p>
+                            Expedited retrieval is first tried, whose potential
+                            failure then leads to standard retrieval. No matter
+                            which retrieval is being performed, the
+                            corresponding job is queried from DynamoDB and its
+                            status is updated to RESTORING.
+                        </p>
+                        <p>
+                            Once the retrieval is completed, S3 Glacier
+                            publishes a message to another SNS topic (the last
+                            one, I promise!), and the message gets to the
+                            corresponding SQS message queue and it triggers a
+                            Lambda function I deployed on AWS. The Lambda
+                            function copies the temporary file (files restored
+                            from S3 Glacier are temporary for 24 hours) to the
+                            S3 results bucket with its original S3 key. It then
+                            deletes the archived file from S3 glacier, and
+                            finally it queries for the job in DynamoDB again and
+                            updates its status back to ACTIVE.
+                        </p>
+                        <h4>Tiered user access</h4>
+                        <p>
+                            GAS implements tiered user access. There are two
+                            user tiers: free users and premium users. I have
+                            already described one difference in the service
+                            these two tiers of users can access. There is
+                            another service difference: free users have a limit
+                            of 15KB on their input files. On the upload page
+                            (with the pre-signed S3 POST request), I implemented
+                            a JavaScript logic that checks whether a free user
+                            is trying to upload an input file of size greater
+                            than 15KB. In that case, upload is cancelled and a
+                            browser alert pops up. Upon closing the alert
+                            window, the free user is redirected to the
+                            &quot;/subscribe&quot; endpoint, where the free user
+                            is prompted to subscribe to the premium plan.
+                        </p>
+                        <p>
+                            To upgrade to a premium user, a free user can visit
+                            the &quot;/subscribe&quot; endpoint on the frontend
+                            server. I created a fake subscription plan via the
+                            Stripe test API. When a free user enters their
+                            credit card information and submits, the user will
+                            be subscribed to the premium plan.
+                        </p>
+                        <p>
+                            After a free user has successfully subscribed to
+                            premium, a message is sent to the utility server to
+                            restore any archived file this user has.
+                        </p>
+                    </section>
+                    <section class="section features" id="features">
+                        <h3 class="header--features">key features</h3>
+                        <p>In summary, GAS has the following features:</p>
+                        <ul>
+                            <li>Annotate users&apos; input files.</li>
+                            <li>
+                                Notify users via emails containing dynamically
+                                generated information when a job request is
+                                finished.
+                            </li>
+                            <li>
+                                Allow the user to see a list of their past job
+                                requests.
+                            </li>
+                            <li>
+                                Allow the user to check the status of a job
+                                request.
+                            </li>
+                            <li>
+                                Allow the user to download a copy of the results
+                                file for a finished job request.
+                            </li>
+                            <li>
+                                Allow the user to view the log file for a
+                                finished job request.
+                            </li>
+                            <li>
+                                Automatically archive a free user&apos;s results
+                                file when the time limit is reached.
+                            </li>
+                            <li>
+                                Allow free users to subscribe to the premium
+                                plan.
+                            </li>
+                            <li>
+                                Allow premium users to downgrade to the free
+                                plan.
+                            </li>
+                            <li>
+                                Automatically restore a free user&apos;s
+                                archived results files when they subscribe to
+                                the premium plan.
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="section lessons" id="lessons">
+                        <h3 class="header--lessons">lessons learned</h3>
+                        <p>I learned a lot through this project:</p>
+                        <ul>
+                            <li>
+                                How a cloud-based software works and how to
+                                construct one.
+                            </li>
+                            <li>How to deploy an application on AWS.</li>
+                            <li>
+                                How to write a server-side application with
+                                multiple endpoints.
+                            </li>
+                            <li>
+                                How to properly handle exceptions to create a
+                                more robust backend application.
+                            </li>
+                            <li>How to write APIs.</li>
+                            <li>
+                                How different servers communicate
+                                asynchronously.
+                            </li>
+                            <li>How to dynamically generate webpages.</li>
+                            <li>
+                                What are some typical trade-offs to make when
+                                building a distributed software.
+                            </li>
+                            <li>and many more...</li>
+                        </ul>
+                    </section>
+                    <section class="section extension" id="extension">
+                        <h3 class="header--extension">possible extensions</h3>
+                        <p>There are two major possible extensions:</p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Change the scripts running on the annotator
+                                    server and the utility server to webhooks.
+                                </p>
+                                <p>
+                                    In my implementation, only the frontend
+                                    server runs as a Flask application, and both
+                                    the annotator server and the utility server
+                                    run as scripts. I know this is not ideal,
+                                    but I only had the time to implement the
+                                    system like this. The better way of
+                                    implementing the system would be to convert
+                                    the annotator server and the utility server
+                                    to Flask applications, and run their
+                                    functionalities as webhooks (i.e. endpoints
+                                    in the Flask applications). The main problem
+                                    with the current script approach is that
+                                    these scripts (Annotator, Notify, Archive,
+                                    and Thaw) are constantly long-polling the
+                                    message queues. Long-polling is certainly
+                                    better than short-polling, but it still is
+                                    not a very scalable approach. What I can do
+                                    instead is to convert them to webhooks and
+                                    subscribe them directly to the corresponding
+                                    SNS topics. This way, we no longer need the
+                                    SQS message queues and have the scripts
+                                    constantly polling them. Rather, messages
+                                    will be directly posted to them by the SNS
+                                    topics, and no polling is required.
+                                </p>
+                            </li>
+                            <li>
+                                Incorporate Elastic Load Balancer (AWS ELB) to
+                                enable automatic horizontal scaling.
                             </li>
                         </ol>
                     </section>
