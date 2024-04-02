@@ -38,6 +38,11 @@
                             <a href="#technical" class="nav-link">details</a>
                         </li>
                         <li>
+                            <a href="#features" class="nav-link"
+                                >key features</a
+                            >
+                        </li>
+                        <li>
                             <a href="#lessons" class="nav-link"
                                 >lessons learned</a
                             >
@@ -56,8 +61,8 @@
                     <div class="header-main">
                         <div class="header-img-container">
                             <img
-                                src="../img/projects/cytometry/result.png"
-                                alt="scientific plots showing research results"
+                                src="../img/projects/berkeley-map/cover.webp"
+                                alt="screenshot of the map application, with a route selected"
                                 class="header-img-img"
                             />
                             <h2 class="header-img-text">Berkeley Map</h2>
@@ -97,27 +102,21 @@
                                 <button class="btn btn-disable">
                                     View Live
                                 </button>
-                                <button class="btn btn-enable">
-                                    Request Source
+                                <button class="btn btn-disable">
+                                    View Source
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="explanation">
                         <p>
-                            Why can&apos;t I view it live? &mdash; Per
-                            university policies, this project cannot be made
-                            live.
-                        </p>
-                        <p>
-                            Why can&apos;t I view the source code directly?
-                            &mdash; Again, per university policies, the source
-                            code of this project cannot be made publicly
-                            available. However, feel free to send me a request,
-                            and I&apos;ll happily share it with you for private
-                            scrutiny!
+                            Why can&apos;t I view it live? &mdash; Currently, I
+                            am unable to host applications with backend.
                         </p>
                     </div>
+                    <a href="#features" class="demo-link"
+                        >Watch a short demo below &darr;</a
+                    >
                 </header>
                 <main class="main-content">
                     <section class="section introduction" id="introduction">
@@ -138,9 +137,13 @@
                             and backend interact with each other in a web
                             application, and how Java plays a crucial role in
                             the backend. As a bonus, this project also lent me
-                            some insight into how raster map applications are
-                            implemented.
+                            some insight into how rastering mapping applications
+                            are implemented.
                         </p>
+                        <img
+                            src="../img/projects/berkeley-map/cover.webp"
+                            alt="screenshot of the map application, with a route selected"
+                        />
                     </section>
                     <section class="section overview" id="overview">
                         <h3 class="header--overview">overview</h3>
@@ -177,17 +180,15 @@
                         <h3 class="header--technical">details</h3>
                         <h4>Map Rastering</h4>
                         <p>
-                            This task is relatively easy (apaproximately
-                            equivalent to a LeetCode medium-level problem).
-                            After some careful mathematical manipulations, one
-                            could easily deduce the algorithm. The data
-                            (latitude, longitude, zoom level, viewport size,
-                            etc.) is stored in the browser as a JavaScript
-                            object, the task is to parse this object and
-                            retrieve all the necessary information, and then
-                            compute the 2D array of map blocks that the frontend
-                            needs to display the required region at the required
-                            zoom level.
+                            This task is relatively easy. After some careful
+                            mathematical manipulations, one could easily deduce
+                            the algorithm. The data (latitude, longitude, zoom
+                            level, viewport size, etc.) is stored in the browser
+                            as a JavaScript object, the task is to parse this
+                            object and retrieve all the necessary information,
+                            and then compute the 2D array of map blocks that the
+                            frontend requires in order to display the desired
+                            region at the desired zoom level.
                         </p>
                         <h4>Graph Building</h4>
                         <p>
@@ -221,7 +222,8 @@
                             convert the arbitrarily chosen locations onto the
                             graph). The next step is then to perform an A*
                             search. The shortest path is sent back to the
-                            frontend and displayed on the map.
+                            frontend (as a list of nodes and edges) and
+                            displayed on the map.
                         </p>
                         <h4>Additional Tasks</h4>
                         <p>
@@ -235,14 +237,79 @@
                             generates a series of navigation instructions (e.g.
                             continue straight on Maple Street for 1.5miles, turn
                             left onto Euclid Avenue, etc.), which are then sent
-                            back to the frontend and displayed.
+                            back to the frontend and displayed. To generate
+                            these navigation instructions, for each change of
+                            roads, compute the angle between the previous road
+                            and the current road. Depending on how sharp this
+                            angle is, we can generate different sentences such
+                            as "keep straight", "slightly turn left", "turn
+                            left", or "make a sharp turn right". Moreover,
+                            depending on the direction from which we come and
+                            the direction to which we go, we can determine if it
+                            is a left turn or a right turn.
                         </p>
                         <p>
                             Autocomplete suggestions: when the user starts
                             typing in the search bar, a list of locations in the
                             map database that start with the user's current
-                            input is displayed under the search bar.
+                            input is displayed under the search bar. This is
+                            implemented using a trie.
                         </p>
+                        <img
+                            src="../img/projects/berkeley-map/trie.webp"
+                            alt="a trie data structure"
+                            class="img--half"
+                        />
+                        <p>
+                            The above image illustrates what a trie is and how
+                            the location &quot;bar&quot; is stored in the trie.
+                        </p>
+                        <p>
+                            When the user starts typing in the search bar, the
+                            algorithm traces through the trie with the
+                            user&apos;s input. If there is a subtree at the last
+                            letter of the user&apos;s input, that subtree is
+                            traversed with a DFS algorithm and all the
+                            root-to-leaf words are shown below the search bar.
+                            These are all the locations that start with the
+                            user&apos;s input.
+                        </p>
+                    </section>
+                    <section class="section features" id="features">
+                        <h3 class="header--features">key features</h3>
+                        <p>
+                            These are the key features I implemented in this
+                            project:
+                        </p>
+                        <ul>
+                            <li>
+                                Render raster maps, responding to user actions
+                                such as dragging and zooming.
+                            </li>
+                            <li>
+                                Calculate the shortest path between any two
+                                locations the user selects. Show the shortest
+                                path on the map.
+                            </li>
+                            <li>
+                                Generate plain English navigation instructions
+                                for the shortest path.
+                            </li>
+                            <li>
+                                Display autocomplete suggestions when the user
+                                is searching for a location.
+                            </li>
+                        </ul>
+                        <p>Below is a short video demonstration:</p>
+                        <video controls style="width: 100%">
+                            <source
+                                src="../img/projects/berkeley-map/demo.webm"
+                                type="video/webm"
+                            />
+                            It seems your browser does not support embedded
+                            videos, please try another browser such as Google
+                            Chrome.
+                        </video>
                     </section>
                     <section class="section lessons" id="lessons">
                         <h3 class="header--lessons">lessons learned</h3>

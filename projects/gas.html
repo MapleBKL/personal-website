@@ -767,8 +767,20 @@
                                     number of nodes in our system as the
                                     requests grow (and decrease as the requests
                                     shrink). This is not particularly difficult
-                                    to achieve with AWS ELB. It works as
-                                    illustrated below.
+                                    to achieve with AWS ELB. The following
+                                    illustration shows how it is supposed to
+                                    work.
+                                </p>
+                                <img
+                                    src="../img/projects/gas/ELB.webp"
+                                    alt="two load balancers distributing workload between servers"
+                                    class="img--half"
+                                />
+                                <p>
+                                    The load balancers automatically distribute
+                                    workload between servers in the cluster. In
+                                    addition, if there are not enough servers,
+                                    it automatically generate more.
                                 </p>
                             </li>
                         </ol>
