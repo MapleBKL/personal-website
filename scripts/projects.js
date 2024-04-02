@@ -45,7 +45,7 @@ backToTop.addEventListener("click", function (e) {
     pageTop.scrollIntoView({ behavior: "smooth" });
 });
 
-demoLink.addEventListener("click", function (e) {
+demoLink?.addEventListener("click", function (e) {
     e.preventDefault();
     sectionFeatures.scrollIntoView({ behavior: "smooth" });
 });

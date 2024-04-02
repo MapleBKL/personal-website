@@ -11,6 +11,7 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="../css/projects.css" />
+        <link rel="stylesheet" href="../css/projects-queries.css" />
         <script src="../scripts/projects.js" defer></script>
         <title>
             Yinfeng Lu &dash; Projects &vert; Genomics Annotation Service
@@ -167,7 +168,7 @@
                     <section class="section overview" id="overview">
                         <h3 class="header--overview">overview</h3>
                         <p>
-                            GAS is a distributed Software as a Service (Saas)
+                            GAS is a distributed Software as a Service (SaaS)
                             application deployed on Amazon Web Services (AWS).
                             It consists of three independent servers (AWS EC2
                             instances):
@@ -309,6 +310,14 @@
                             communication. The operation of one server does not
                             depend on the response of the other server.
                         </p>
+                        <img
+                            src="../img/projects/gas/submit-request-sequence.webp"
+                            alt="sequence diagram showing the process of submitting an input file"
+                        />
+                        <p>
+                            The above sequence diagram illustrates the process
+                            of submitting an input file.
+                        </p>
                         <h4>Process job requests</h4>
                         <p>
                             The annotator server runs on a separate EC2
@@ -377,6 +386,14 @@
                             annotator server updates the job status on DynamoDB,
                             and the frontend server can query for the job status
                             to check if a job request has been fulfilled or not.
+                        </p>
+                        <img
+                            src="../img/projects/gas/process-job-sequence.webp"
+                            alt="sequence diagram illustrating the process of processing an input file"
+                        />
+                        <p>
+                            The above sequence diagram illustrates the process
+                            of processing an input file.
                         </p>
                         <h4>View and download result files</h4>
                         <p>
@@ -480,10 +497,6 @@
                             rendered for the user. There is also some CSS
                             involved in styling the table.
                         </p>
-                        <p>
-                            There is more involved in this phase, but I will
-                            postpone the discussion to later subsections.
-                        </p>
                         <h4>Email notifications</h4>
                         <p>
                             When the subprocess in the annotator server finishes
@@ -574,6 +587,15 @@
                             </li>
                             <li>Message is deleted from the message queue.</li>
                         </ol>
+                        <img
+                            src="../img/projects/gas/archive-sequence.webp"
+                            alt="sequence diagram illustrating the process of archiving a free user's results file"
+                        />
+                        <p>
+                            The above sequence diagram illustrates the process
+                            of archiving a free user&apos;s results file to S3
+                            Glacier.
+                        </p>
                         <p>
                             Of course, if a free user decides to upgrade to the
                             premium status, their results files should be
@@ -609,6 +631,15 @@
                             deletes the archived file from S3 glacier, and
                             finally it queries for the job in DynamoDB again and
                             updates its status back to ACTIVE.
+                        </p>
+                        <img
+                            src="../img/projects/gas/restore-sequence.webp"
+                            alt="sequence diagram illustrating the process of restoring a premium user's results files"
+                        />
+                        <p>
+                            The above sequence diagram illustrates the process
+                            of restoring a premium user&apos;s results files
+                            from S3 Glacier back to S3 bucket.
                         </p>
                         <h4>Tiered user access</h4>
                         <p>
@@ -774,13 +805,12 @@
                                 <img
                                     src="../img/projects/gas/ELB.webp"
                                     alt="two load balancers distributing workload between servers"
-                                    class="img--half"
                                 />
                                 <p>
                                     The load balancers automatically distribute
                                     workload between servers in the cluster. In
                                     addition, if there are not enough servers,
-                                    it automatically generate more.
+                                    it automatically generates more.
                                 </p>
                             </li>
                         </ol>
