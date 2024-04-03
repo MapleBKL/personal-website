@@ -1,3 +1,5 @@
+"use strict";
+
 const sections = document.querySelectorAll(".section");
 const navLinks = document.querySelectorAll(".nav-link");
 const nav = document.querySelector(".nav-links");
