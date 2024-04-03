@@ -349,7 +349,7 @@ ol {
 
 .btn-mobile {
     position: fixed;
-    top: 5rem;
+    top: 2.4rem;
     right: 3%;
     display: none;
     z-index: 5;

@@ -13,6 +13,11 @@
         font-size: 56.25%;
     }
 
+    ul,
+    ol {
+        font-size: 1.6rem;
+    }
+
     .nav-links {
         gap: 2.2rem;
     }
@@ -142,6 +147,24 @@
         line-height: 1.6;
         margin-bottom: 1.6rem;
     }
+
+    li {
+        line-height: 1.6;
+    }
+
+    .request-source {
+        width: 30rem;
+        padding: 2.4rem;
+    }
+
+    .request-source h4 {
+        font-size: 1.8rem;
+    }
+
+    .request-source p {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
 }
 
 @media (max-width: 28em) {
@@ -151,5 +174,10 @@
 
     .navigation {
         padding-left: 10%;
+    }
+
+    .back-to-top:link {
+        bottom: 1.8rem;
+        right: 1.8rem;
     }
 }
