@@ -370,3 +370,55 @@ ol {
 .icon-mobile-nav[name="close-outline"] {
     display: none;
 }
+
+.request-source {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3.6rem;
+    width: 50rem;
+    color: #333;
+    background-color: #fff;
+    border-radius: 9px;
+    z-index: 2;
+    transition: all 300ms;
+}
+
+.request-source h4 {
+    margin: 0 0 1.8rem 0;
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.request-source p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.close-request {
+    position: fixed;
+    top: 0.8rem;
+    right: 1.2rem;
+    background: none;
+    font-size: 2.4rem;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    transition: all 300ms;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}

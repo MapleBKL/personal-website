@@ -11,6 +11,11 @@ const sectionFeatures = document.querySelector("#features");
 const logo = document.querySelector(".logo-refresh");
 const btnMobileNav = document.querySelector(".btn-mobile");
 
+const btnRequest = document.querySelector(".btn-request");
+const btnCloseRequest = document.querySelector(".close-request");
+const requestMsg = document.querySelector(".request-source");
+const overlay = document.querySelector(".overlay");
+
 function highlightNav() {
     const scrollPosition = window.scrollY;
 
@@ -61,5 +66,29 @@ document.addEventListener("click", function (e) {
     ) {
         e.preventDefault();
         pageTop.classList.toggle("nav-open");
+    }
+});
+
+// request source
+const closeModal = () => {
+    requestMsg.classList.add("hidden");
+    overlay.classList.add("hidden");
+};
+
+btnRequest?.addEventListener("click", function () {
+    requestMsg.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+});
+
+btnCloseRequest?.addEventListener("click", closeModal);
+
+overlay?.addEventListener("click", function () {
+    if (overlay.classList.contains("hidden")) return;
+    closeModal();
+});
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
+        closeModal();
     }
 });
