@@ -9,11 +9,6 @@ const sectionFeatures = document.querySelector("#features");
 const logo = document.querySelector(".logo-refresh");
 const btnMobileNav = document.querySelector(".btn-mobile");
 
-logo.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.location.reload();
-});
-
 function highlightNav() {
     const scrollPosition = window.scrollY;
 
@@ -53,4 +48,16 @@ demoLink?.addEventListener("click", function (e) {
 
 btnMobileNav.addEventListener("click", function () {
     pageTop.classList.toggle("nav-open");
+});
+
+// clicking outside of the mobile nav closes it
+document.addEventListener("click", function (e) {
+    if (
+        !e.target.closest(".navigation") &&
+        !e.target.closest(".btn-mobile") &&
+        pageTop.classList.contains("nav-open")
+    ) {
+        e.preventDefault();
+        pageTop.classList.toggle("nav-open");
+    }
 });

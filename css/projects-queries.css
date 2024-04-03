@@ -44,6 +44,11 @@
     .buttons {
         flex-direction: column;
     }
+
+    .back-to-top:link {
+        bottom: 3rem;
+        right: 3rem;
+    }
 }
 
 @media (max-width: 65em) {
@@ -56,6 +61,10 @@
 }
 
 @media (max-width: 54em) {
+    .layout {
+        padding: 0;
+    }
+
     .header-secondary {
         flex-direction: column;
         gap: 2.4rem;
@@ -74,7 +83,7 @@
     .navigation {
         z-index: 5;
         background-color: rgba(241, 241, 241, 1);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 50%;
@@ -107,9 +116,17 @@
     .nav-open .icon-mobile-nav[name="menu-outline"] {
         display: none;
     }
+
+    .img--half {
+        width: 100%;
+    }
 }
 
 @media (max-width: 34em) {
+    .header-img-text {
+        font-size: 2.4rem;
+    }
+
     .navigation {
         width: 70%;
         padding-left: 20%;
@@ -118,6 +135,12 @@
 
     .nav-open .navigation {
         transform: translateX(43%);
+    }
+
+    section p {
+        font-size: 1.6rem;
+        line-height: 1.6;
+        margin-bottom: 1.6rem;
     }
 }
 
