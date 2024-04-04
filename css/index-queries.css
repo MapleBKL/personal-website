@@ -274,6 +274,20 @@
 
 /* from this point on, change nav list to menu icon */
 @media (max-width: 54em) {
+    .project-item:hover,
+    .project-link--other:hover {
+        background-color: inherit;
+        box-shadow: none;
+    }
+    .link-icon:hover,
+    .link-icon:active {
+        color: #aaa;
+    }
+
+    .link-icon--top:hover {
+        transform: none;
+    }
+
     .project-img {
         width: 44rem;
     }

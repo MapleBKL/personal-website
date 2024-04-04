@@ -50,6 +50,10 @@ const logo = document.querySelector(".logo-refresh");
 const btnMobileNav = document.querySelector(".btn-mobile-nav");
 const navPanel = document.querySelector(".main_nav");
 
+function hasTouch() {
+    return "ontouchstart" in window || navigator.maxTouchPoints;
+}
+
 //////////
 
 logo.addEventListener("click", function (e) {
@@ -217,53 +221,58 @@ externalText.addEventListener("mouseleave", function () {
 // 1. other featured project images turn grey
 // 2. project name turns blue
 // 3. external link icon reveals next to project name
-projectContainer.addEventListener("mouseover", function (e) {
-    const target = e.target.closest(".project-item");
-    if (!target) return;
-    target.querySelector(".project-name").style.color = "#4361ee";
-    target.querySelector(".project-img").style.transform = "scale(1.03)";
-    // projectImgs.forEach((img) => (img.style.filter = "brightness(0.4)"));
-    // target.querySelector(".project-img").style.filter = "";
-    const icon = target.querySelector(".bx");
-    icon.classList.remove("element--hidden");
-    icon.style.color = "#4361ee";
-});
-projectsFeatured.forEach((p) =>
-    p.addEventListener("mouseleave", function (e) {
-        e.target.querySelector(".project-name").style.color = "#333";
-        e.target.querySelector(".project-img").style.transform = "scale(1)";
-        // projectImgs.forEach((img) => (img.style.filter = ""));
-        const icon = e.target.querySelector(".bx");
-        icon.classList.add("element--hidden");
-        icon.style.color = "#333";
-    })
-);
+if (!hasTouch()) {
+    projectContainer.addEventListener("mouseover", function (e) {
+        const target = e.target.closest(".project-item");
+        if (!target) return;
+        target.querySelector(".project-name").style.color = "#4361ee";
+        target.querySelector(".project-img").style.transform = "scale(1.03)";
+        // projectImgs.forEach((img) => (img.style.filter = "brightness(0.4)"));
+        // target.querySelector(".project-img").style.filter = "";
+        const icon = target.querySelector(".bx");
+        icon.classList.remove("element--hidden");
+        icon.style.color = "#4361ee";
+    });
+    projectsFeatured.forEach((p) =>
+        p.addEventListener("mouseleave", function (e) {
+            e.target.querySelector(".project-name").style.color = "#333";
+            e.target.querySelector(".project-img").style.transform = "scale(1)";
+            // projectImgs.forEach((img) => (img.style.filter = ""));
+            const icon = e.target.querySelector(".bx");
+            icon.classList.add("element--hidden");
+            icon.style.color = "#333";
+        })
+    );
+}
 
 // In the PROJECT section, when hovering cursor over an other project
 // 1. other project images turn grey
 // 2. project name turns blue
-projectOtherContainer.addEventListener("mouseover", function (e) {
-    const target = e.target.closest(".project-link--other");
-    if (!target) return;
-    target.querySelector(".project-name--other").style.color = "#4361ee";
-    target.querySelector(".project-img--other").style.transform = "scale(1.03)";
-    // projectImgsOther.forEach((img) => (img.style.filter = "brightness(0.4)"));
-    // target.querySelector(".project-img--other").style.filter = "";
-    const icon = target.querySelector(".bx");
-    icon.classList.remove("element--hidden");
-    icon.style.color = "#4361ee";
-});
-projectsOther.forEach((p) =>
-    p.addEventListener("mouseleave", function (e) {
-        e.target.querySelector(".project-name--other").style.color = "#333";
-        e.target.querySelector(".project-img--other").style.transform =
-            "scale(1)";
-        // projectImgsOther.forEach((img) => (img.style.filter = ""));
-        const icon = e.target.querySelector(".bx");
-        icon.classList.add("element--hidden");
-        icon.style.color = "#333";
-    })
-);
+if (!hasTouch()) {
+    projectOtherContainer.addEventListener("mouseover", function (e) {
+        const target = e.target.closest(".project-link--other");
+        if (!target) return;
+        target.querySelector(".project-name--other").style.color = "#4361ee";
+        target.querySelector(".project-img--other").style.transform =
+            "scale(1.03)";
+        // projectImgsOther.forEach((img) => (img.style.filter = "brightness(0.4)"));
+        // target.querySelector(".project-img--other").style.filter = "";
+        const icon = target.querySelector(".bx");
+        icon.classList.remove("element--hidden");
+        icon.style.color = "#4361ee";
+    });
+    projectsOther.forEach((p) =>
+        p.addEventListener("mouseleave", function (e) {
+            e.target.querySelector(".project-name--other").style.color = "#333";
+            e.target.querySelector(".project-img--other").style.transform =
+                "scale(1)";
+            // projectImgsOther.forEach((img) => (img.style.filter = ""));
+            const icon = e.target.querySelector(".bx");
+            icon.classList.add("element--hidden");
+            icon.style.color = "#333";
+        })
+    );
+}
 
 // reveal sections
 const revealSection = function (entries, observer) {

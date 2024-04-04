@@ -14,7 +14,7 @@
     }
 
     .nav-links {
-        gap: 2.2rem;
+        gap: 2.8rem;
     }
 
     .project-content {
@@ -61,6 +61,17 @@
 }
 
 @media (max-width: 54em) {
+    .demo-link:hover,
+    .demo-link:active {
+        color: #333;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:active {
+        color: #777;
+        opacity: 0.5;
+    }
+
     .layout {
         padding: 0;
     }
