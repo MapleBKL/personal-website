@@ -951,7 +951,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-rows: 1fr 1fr auto 1fr;
     column-gap: 3.2rem;
     row-gap: 2.8rem;
 }
@@ -986,7 +986,7 @@
     box-shadow: 0 0 0 0.2rem #c7d0fa;
 }
 
-.cta-form div:last-child {
+.cta-form div:nth-child(5) {
     grid-column: 1 / -1;
 }
 
@@ -999,6 +999,9 @@
     padding: 1.2rem 2.4rem;
     border-radius: 9px;
     transition: all 300ms;
+    align-self: center;
+    justify-self: center;
+    grid-column: 1 / -1;
 }
 
 .send-message:hover {
