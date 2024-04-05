@@ -986,7 +986,7 @@
     box-shadow: 0 0 0 0.2rem #c7d0fa;
 }
 
-.cta-form div:nth-child(5) {
+.cta-message {
     grid-column: 1 / -1;
 }
 
